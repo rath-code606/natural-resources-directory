@@ -11,6 +11,7 @@
       --muted: #666;
       --bg: #fff;
       --card: #fff7f4;
+      --region-fill: #f5f0eb;
     }
 
     * {
@@ -26,7 +27,7 @@
     }
 
     .page {
-      max-width: 1080px;
+      max-width: 1100px;
       margin: 24px auto 40px;
       padding: 0 16px;
     }
@@ -37,35 +38,48 @@
     }
 
     .subtitle {
-      margin: 0 0 24px;
+      margin: 0 0 8px;
       text-align: center;
       color: var(--muted);
     }
 
-    .layout {
-      display: grid;
-      grid-template-columns: minmax(280px, 1fr) 1fr;
-      gap: 20px;
-      align-items: start;
+    .noaa-note {
+      margin: 0 auto 20px;
+      max-width: 720px;
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
     }
 
-    .panel {
-      border: 1px solid #eee;
-      border-radius: 10px;
-      background: #fff;
-      padding: 14px;
+    .noaa-note a {
+      color: var(--accent);
+    }
+
+    .map-hero {
+      max-width: 920px;
+      margin: 0 auto 20px;
+      text-align: center;
+    }
+
+    .map-hero h2 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
     }
 
     .map-wrap {
       border: 1px solid #f0d6ce;
       border-radius: 10px;
       background: #fffdfa;
-      padding: 8px;
+      padding: 10px;
     }
 
     .us-map-root {
       width: 100%;
-      min-height: 320px;
+      max-width: 880px;
+      margin: 0 auto;
+      min-height: 280px;
     }
 
     .us-map-root svg {
@@ -75,9 +89,9 @@
     }
 
     .state {
-      fill: #fff7f4;
-      stroke: #ccc;
-      stroke-width: 0.75;
+      fill: var(--region-fill);
+      stroke: #bbb;
+      stroke-width: 0.65;
       cursor: pointer;
       transition: fill 0.15s ease, stroke 0.15s ease;
     }
@@ -88,24 +102,31 @@
       outline: none;
     }
 
-    .state.is-active {
+    .state.is-region {
+      fill: #ffd4c4;
+    }
+
+    .state.is-selected {
       fill: var(--accent);
-      stroke: #8c1e00;
+      stroke: #5c1500;
     }
 
     .map-footnote {
-      margin: 8px 0 0;
-      font-size: 12px;
+      margin: 10px 0 0;
+      font-size: 11px;
       color: var(--muted);
+      text-align: left;
     }
 
     .map-error {
       margin: 8px 0 0;
       color: #b00000;
+      text-align: left;
     }
 
     .intl-btn {
-      margin-top: 10px;
+      margin-top: 12px;
+      max-width: 400px;
       width: 100%;
       border: 2px solid var(--accent);
       background: #fff;
@@ -113,7 +134,7 @@
       border-radius: 8px;
       font-size: 15px;
       font-weight: 700;
-      padding: 10px;
+      padding: 10px 14px;
       cursor: pointer;
       transition: all 0.2s ease;
     }
@@ -124,6 +145,49 @@
       background: var(--accent);
       color: #fff;
       outline: none;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      align-items: flex-end;
+      max-width: 920px;
+      margin: 0 auto 24px;
+      padding: 16px;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      background: #fafafa;
+    }
+
+    .control {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      text-align: left;
+      min-width: 200px;
+    }
+
+    .control label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #444;
+    }
+
+    .control select {
+      padding: 8px 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    .jobs-panel {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      background: #fff;
+      padding: 16px;
     }
 
     .jobs-header {
@@ -175,34 +239,45 @@
       color: var(--muted);
       font-style: italic;
     }
-
-    @media (max-width: 860px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
-    }
   </style>
 </head>
 <body>
   <main class="page">
     <h1>U.S. Regional Job Board</h1>
-    <p class="subtitle">Click a state on the map, or use International</p>
+    <p class="subtitle">Click a state on the map, then narrow listings by NOAA Fisheries region and state.</p>
+    <p class="noaa-note">
+      Regions follow <a href="https://www.fisheries.noaa.gov/regions" rel="noreferrer" target="_blank">NOAA Fisheries regional offices</a>
+      (Alaska, New England/Mid-Atlantic, Pacific Islands, Southeast, West Coast). The West Coast R.O. officially covers
+      <a href="https://www.fisheries.noaa.gov/about/west-coast-regional-office" rel="noreferrer" target="_blank">WA, OR, CA, and ID</a>;
+      other western and northern plains states are grouped with West Coast here for navigation only.
+    </p>
 
-    <section class="layout">
-      <div class="panel">
-        <h2>United States</h2>
-        <div class="map-wrap">
-          <div id="us-map-root" class="us-map-root" aria-label="U.S. map, click a state to filter by region"></div>
-          <p class="map-footnote">Map: <a href="https://github.com/topojson/us-atlas" rel="noreferrer" target="_blank">us-atlas</a> + D3. Regions are grouped for this directory.</p>
-          <p id="map-geo-error" class="map-error" role="status" style="display:none"></p>
-        </div>
-        <button type="button" class="intl-btn" id="intl-btn" aria-pressed="false">International (not on map)</button>
+    <section class="map-hero">
+      <h2>United States</h2>
+      <div class="map-wrap">
+        <div id="us-map-root" class="us-map-root" aria-label="U.S. map — click a state"></div>
+        <p class="map-footnote">
+          Map data: <a href="https://github.com/topojson/us-atlas" rel="noreferrer" target="_blank">us-atlas</a> (D3 + topojson-client).
+        </p>
+        <p id="map-geo-error" class="map-error" role="status" style="display:none"></p>
       </div>
+      <button type="button" class="intl-btn" id="intl-btn" aria-pressed="false">International (outside U.S. map)</button>
+    </section>
 
-      <div class="panel">
-        <h2 id="jobs-region-title" class="jobs-header">Jobs</h2>
-        <div id="jobs-list" class="jobs-list" aria-live="polite"></div>
+    <section class="controls" aria-label="Filters">
+      <div class="control">
+        <label for="region-select">NOAA region</label>
+        <select id="region-select"></select>
       </div>
+      <div class="control">
+        <label for="state-select">State / territory</label>
+        <select id="state-select"></select>
+      </div>
+    </section>
+
+    <section class="jobs-panel">
+      <h2 id="jobs-region-title" class="jobs-header">Jobs</h2>
+      <div id="jobs-list" class="jobs-list" aria-live="polite"></div>
     </section>
   </main>
 
@@ -213,125 +288,308 @@
     const US_ATLAS_STATES = "https://cdn.jsdelivr.net/npm/us-atlas@3.0.0/states-10m.json";
     const dataUrl = "https://raw.githubusercontent.com/rath-code606/natural-resources-directory/main/bird-sites-regional.json";
 
-    const stateNameToDirRegion = {
-      Alaska: "alaska",
-      Alabama: "central",
-      Arkansas: "central",
-      Arizona: "west",
-      California: "west",
-      Colorado: "west",
-      Connecticut: "east",
-      "District of Columbia": "east",
-      Delaware: "east",
-      Florida: "east",
-      Georgia: "east",
-      Hawaii: "west",
-      Iowa: "central",
-      Idaho: "west",
-      Illinois: "central",
-      Indiana: "central",
-      Kansas: "central",
-      Kentucky: "central",
-      Louisiana: "central",
-      Massachusetts: "east",
-      Maryland: "east",
-      Maine: "east",
-      Michigan: "central",
-      Minnesota: "central",
-      Missouri: "central",
-      Mississippi: "central",
-      Montana: "west",
-      "North Carolina": "east",
-      "North Dakota": "central",
-      Nebraska: "central",
-      "New Hampshire": "east",
-      "New Jersey": "east",
-      "New Mexico": "west",
-      Nevada: "west",
-      "New York": "east",
-      Ohio: "central",
-      Oklahoma: "central",
-      Oregon: "west",
-      Pennsylvania: "east",
-      "Rhode Island": "east",
-      "South Carolina": "east",
-      "South Dakota": "central",
-      Tennessee: "central",
-      Texas: "central",
-      Utah: "west",
-      Virginia: "east",
-      Vermont: "east",
-      Washington: "west",
-      Wisconsin: "central",
-      "West Virginia": "east",
-      Wyoming: "west",
-      "Puerto Rico": "international"
+    const STATE_NAME_TO_STUSPS = {
+      Alabama: "AL",
+      Alaska: "AK",
+      Arizona: "AZ",
+      Arkansas: "AR",
+      California: "CA",
+      Colorado: "CO",
+      Connecticut: "CT",
+      Delaware: "DE",
+      "District of Columbia": "DC",
+      Florida: "FL",
+      Georgia: "GA",
+      Hawaii: "HI",
+      Idaho: "ID",
+      Illinois: "IL",
+      Indiana: "IN",
+      Iowa: "IA",
+      Kansas: "KS",
+      Kentucky: "KY",
+      Louisiana: "LA",
+      Maine: "ME",
+      Maryland: "MD",
+      Massachusetts: "MA",
+      Michigan: "MI",
+      Minnesota: "MN",
+      Mississippi: "MS",
+      Missouri: "MO",
+      Montana: "MT",
+      Nebraska: "NE",
+      Nevada: "NV",
+      "New Hampshire": "NH",
+      "New Jersey": "NJ",
+      "New Mexico": "NM",
+      "New York": "NY",
+      "North Carolina": "NC",
+      "North Dakota": "ND",
+      Ohio: "OH",
+      Oklahoma: "OK",
+      Oregon: "OR",
+      Pennsylvania: "PA",
+      "Rhode Island": "RI",
+      "South Carolina": "SC",
+      "South Dakota": "SD",
+      Tennessee: "TN",
+      Texas: "TX",
+      Utah: "UT",
+      Vermont: "VT",
+      Virginia: "VA",
+      Washington: "WA",
+      "West Virginia": "WV",
+      Wisconsin: "WI",
+      Wyoming: "WY",
+      "Puerto Rico": "PR"
     };
 
-    const jobsByRegion = {
-      alaska: [],
-      west: [],
-      central: [],
-      east: [],
-      international: []
+    const STUSPS_TO_NOAA_REGION = {
+      AK: "alaska",
+      HI: "pacific_islands",
+      PR: "southeast",
+      WA: "west_coast",
+      OR: "west_coast",
+      CA: "west_coast",
+      ID: "west_coast",
+      MT: "west_coast",
+      WY: "west_coast",
+      CO: "west_coast",
+      UT: "west_coast",
+      AZ: "west_coast",
+      NV: "west_coast",
+      ND: "west_coast",
+      SD: "west_coast",
+      ME: "greater_atlantic",
+      NH: "greater_atlantic",
+      VT: "greater_atlantic",
+      MA: "greater_atlantic",
+      RI: "greater_atlantic",
+      CT: "greater_atlantic",
+      NY: "greater_atlantic",
+      NJ: "greater_atlantic",
+      DE: "greater_atlantic",
+      MD: "greater_atlantic",
+      PA: "greater_atlantic",
+      DC: "greater_atlantic",
+      VA: "greater_atlantic",
+      WV: "greater_atlantic",
+      OH: "greater_atlantic",
+      MI: "greater_atlantic",
+      IN: "greater_atlantic",
+      IL: "greater_atlantic",
+      WI: "greater_atlantic",
+      MN: "greater_atlantic",
+      NC: "southeast",
+      SC: "southeast",
+      GA: "southeast",
+      FL: "southeast",
+      AL: "southeast",
+      MS: "southeast",
+      LA: "southeast",
+      TX: "southeast",
+      TN: "southeast",
+      KY: "southeast",
+      MO: "southeast",
+      AR: "southeast",
+      IA: "southeast",
+      KS: "southeast",
+      NE: "southeast",
+      OK: "southeast",
+      NM: "southeast"
     };
 
-    const regionLabels = {
+    const REGION_OPTIONS = [
+      { value: "all", label: "All NOAA regions (U.S.)" },
+      { value: "alaska", label: "Alaska" },
+      { value: "greater_atlantic", label: "New England / Mid-Atlantic (Greater Atlantic)" },
+      { value: "pacific_islands", label: "Pacific Islands" },
+      { value: "southeast", label: "Southeast" },
+      { value: "west_coast", label: "West Coast" },
+      { value: "international", label: "International" }
+    ];
+
+    const REGION_LABEL_SHORT = {
       alaska: "Alaska",
-      west: "West",
-      central: "Central",
-      east: "East",
+      greater_atlantic: "New England / Mid-Atlantic",
+      pacific_islands: "Pacific Islands",
+      southeast: "Southeast",
+      west_coast: "West Coast",
       international: "International"
     };
+
+    const STATE_LABEL = {
+      AL: "Alabama",
+      AK: "Alaska",
+      AZ: "Arizona",
+      AR: "Arkansas",
+      CA: "California",
+      CO: "Colorado",
+      CT: "Connecticut",
+      DE: "Delaware",
+      DC: "District of Columbia",
+      FL: "Florida",
+      GA: "Georgia",
+      HI: "Hawaii",
+      ID: "Idaho",
+      IL: "Illinois",
+      IN: "Indiana",
+      IA: "Iowa",
+      KS: "Kansas",
+      KY: "Kentucky",
+      LA: "Louisiana",
+      ME: "Maine",
+      MD: "Maryland",
+      MA: "Massachusetts",
+      MI: "Michigan",
+      MN: "Minnesota",
+      MS: "Mississippi",
+      MO: "Missouri",
+      MT: "Montana",
+      NE: "Nebraska",
+      NV: "Nevada",
+      NH: "New Hampshire",
+      NJ: "New Jersey",
+      NM: "New Mexico",
+      NY: "New York",
+      NC: "North Carolina",
+      ND: "North Dakota",
+      OH: "Ohio",
+      OK: "Oklahoma",
+      OR: "Oregon",
+      PA: "Pennsylvania",
+      RI: "Rhode Island",
+      SC: "South Carolina",
+      SD: "South Dakota",
+      TN: "Tennessee",
+      TX: "Texas",
+      UT: "Utah",
+      VT: "Vermont",
+      VA: "Virginia",
+      WA: "Washington",
+      WV: "West Virginia",
+      WI: "Wisconsin",
+      WY: "Wyoming",
+      PR: "Puerto Rico"
+    };
+
+    function statesForRegion(regionValue) {
+      if (regionValue === "all" || regionValue === "international") {
+        return Object.keys(STATE_LABEL).sort((a, b) => STATE_LABEL[a].localeCompare(STATE_LABEL[b]));
+      }
+      return Object.entries(STUSPS_TO_NOAA_REGION)
+        .filter(([, r]) => r === regionValue)
+        .map(([st]) => st)
+        .sort((a, b) => STATE_LABEL[a].localeCompare(STATE_LABEL[b]));
+    }
 
     const jobsTitle = document.getElementById("jobs-region-title");
     const jobsList = document.getElementById("jobs-list");
     const intlBtn = document.getElementById("intl-btn");
     const mapRoot = document.getElementById("us-map-root");
     const mapGeoError = document.getElementById("map-geo-error");
+    const regionSelect = document.getElementById("region-select");
+    const stateSelect = document.getElementById("state-select");
 
-    let currentRegion = "west";
+    let allJobs = [];
     let statePaths = null;
+    let currentRegion = "west_coast";
+    let currentState = "all";
     const mapWidth = 800;
     const mapHeight = 500;
 
-    function groupJobsByRegion(items) {
-      Object.keys(jobsByRegion).forEach((k) => {
-        jobsByRegion[k] = [];
+    REGION_OPTIONS.forEach((opt) => {
+      const o = document.createElement("option");
+      o.value = opt.value;
+      o.textContent = opt.label;
+      regionSelect.appendChild(o);
+    });
+
+    function fillStateSelect() {
+      const prev = stateSelect.value;
+      stateSelect.innerHTML = "";
+      const allOpt = document.createElement("option");
+      allOpt.value = "all";
+      allOpt.textContent = "All states / territories";
+      stateSelect.appendChild(allOpt);
+      const list =
+        currentRegion === "international"
+          ? []
+          : statesForRegion(currentRegion === "all" ? "all" : currentRegion);
+      list.forEach((st) => {
+        const o = document.createElement("option");
+        o.value = st;
+        o.textContent = STATE_LABEL[st] + " (" + st + ")";
+        stateSelect.appendChild(o);
       });
-      items.forEach((item) => {
-        const r = String(item.region || "").toLowerCase();
-        if (Object.prototype.hasOwnProperty.call(jobsByRegion, r)) {
-          jobsByRegion[r].push(item);
-        }
-      });
+      if (list.includes(prev)) stateSelect.value = prev;
+      else stateSelect.value = "all";
+      currentState = stateSelect.value;
+    }
+
+    function jobMatchesRegion(job, regionKey) {
+      if (regionKey === "all") {
+        return job.region !== "international";
+      }
+      if (regionKey === "international") {
+        return job.region === "international";
+      }
+      return job.region === regionKey;
+    }
+
+    function jobMatchesState(job, st) {
+      if (st === "all") return true;
+      if (job.us_national) return true;
+      if (job.state && job.state === st) return true;
+      if (Array.isArray(job.states) && job.states.includes(st)) return true;
+      return false;
+    }
+
+    function filteredJobs() {
+      return allJobs.filter((job) => jobMatchesRegion(job, currentRegion) && jobMatchesState(job, currentState));
     }
 
     function syncMapHighlight() {
       if (!statePaths) return;
-      statePaths
-        .classed("is-active", (d) => {
-          if (currentRegion === "international") return false;
-          const name = d.properties && d.properties.name;
-          const dir = stateNameToDirRegion[name] || "central";
-          return dir === currentRegion;
-        });
+      statePaths.classed("is-selected", (d) => {
+        const name = d.properties && d.properties.name;
+        const st = STATE_NAME_TO_STUSPS[name];
+        return st && currentState === st;
+      });
+      statePaths.classed("is-region", (d) => {
+        const name = d.properties && d.properties.name;
+        const st = STATE_NAME_TO_STUSPS[name];
+        if (!st) return false;
+        const r = STUSPS_TO_NOAA_REGION[st];
+        if (currentRegion === "international" || currentRegion === "all") return false;
+        return r === currentRegion && currentState === "all";
+      });
     }
 
-    function renderRegion(regionKey) {
-      currentRegion = regionKey;
-      const jobs = jobsByRegion[regionKey] || [];
-      jobsTitle.textContent = "Jobs: " + regionLabels[regionKey];
-      intlBtn.classList.toggle("active", regionKey === "international");
-      intlBtn.setAttribute("aria-pressed", String(regionKey === "international"));
-      syncMapHighlight();
+    function renderJobs() {
+      intlBtn.classList.toggle("active", currentRegion === "international");
+      intlBtn.setAttribute("aria-pressed", String(currentRegion === "international"));
 
+      let titleParts = [];
+      if (currentRegion === "international") {
+        titleParts.push("International");
+      } else if (currentRegion === "all") {
+        titleParts.push("All U.S. regions");
+      } else {
+        titleParts.push(REGION_LABEL_SHORT[currentRegion] || currentRegion);
+      }
+      if (currentState !== "all" && currentRegion !== "international") {
+        titleParts.push(STATE_LABEL[currentState] || currentState);
+      }
+      jobsTitle.textContent = "Jobs: " + titleParts.join(" — ");
+
+      const jobs = filteredJobs();
       jobsList.innerHTML = "";
       if (!jobs.length) {
         const p = document.createElement("p");
         p.className = "empty";
-        p.textContent = "No jobs posted yet for this region.";
+        p.textContent = "No listings match this region and state filter.";
         jobsList.appendChild(p);
+        syncMapHighlight();
         return;
       }
       jobs.forEach((job) => {
@@ -344,7 +602,11 @@
         meta.className = "job-meta";
         const org = job.org || job.organization || "Unknown organization";
         const loc = job.location || "Location not listed";
-        meta.textContent = org + " - " + loc;
+        let stateNote = "";
+        if (job.us_national) stateNote = " · U.S.-wide postings";
+        else if (Array.isArray(job.states) && job.states.length) stateNote = " · States: " + job.states.join(", ");
+        else if (job.state) stateNote = " · " + job.state;
+        meta.textContent = org + " — " + loc + stateNote;
         const a = document.createElement("a");
         a.className = "job-link";
         a.href = job.url;
@@ -356,9 +618,37 @@
         card.appendChild(a);
         jobsList.appendChild(card);
       });
+      syncMapHighlight();
     }
 
-    intlBtn.addEventListener("click", () => renderRegion("international"));
+    function setRegionAndState(regionKey, stateStusps) {
+      currentRegion = regionKey;
+      regionSelect.value = regionKey;
+      fillStateSelect();
+      if (stateStusps) {
+        if (stateSelect.querySelector('option[value="' + stateStusps + '"]')) {
+          stateSelect.value = stateStusps;
+        }
+      }
+      currentState = stateSelect.value;
+      renderJobs();
+    }
+
+    regionSelect.addEventListener("change", () => {
+      currentRegion = regionSelect.value;
+      fillStateSelect();
+      currentState = stateSelect.value;
+      renderJobs();
+    });
+
+    stateSelect.addEventListener("change", () => {
+      currentState = stateSelect.value;
+      renderJobs();
+    });
+
+    intlBtn.addEventListener("click", () => {
+      setRegionAndState("international", null);
+    });
 
     async function loadJobs() {
       try {
@@ -366,8 +656,10 @@
         if (!response.ok) throw new Error("Failed to load: " + response.status);
         const items = await response.json();
         if (!Array.isArray(items)) throw new Error("Invalid JSON");
-        groupJobsByRegion(items);
-        renderRegion("west");
+        allJobs = items;
+        regionSelect.value = currentRegion;
+        fillStateSelect();
+        renderJobs();
       } catch (e) {
         jobsList.innerHTML = "";
         const p = document.createElement("p");
@@ -405,21 +697,43 @@
           .attr("role", "button")
           .on("click", (event, d) => {
             const name = d.properties && d.properties.name;
-            const dir = stateNameToDirRegion[name] || "central";
-            if (name === "Puerto Rico") {
-              renderRegion("international");
-            } else {
-              renderRegion(dir);
+            const st = STATE_NAME_TO_STUSPS[name];
+            if (!st) return;
+            if (st === "PR") {
+              setRegionAndState("southeast", "PR");
+              return;
             }
+            const reg = STUSPS_TO_NOAA_REGION[st];
+            if (name === "Hawaii") {
+              setRegionAndState("pacific_islands", "HI");
+              return;
+            }
+            if (name === "Alaska") {
+              setRegionAndState("alaska", "AK");
+              return;
+            }
+            setRegionAndState(reg || "west_coast", st);
           })
           .on("keydown", (event, d) => {
-            if (event.key === "Enter" || event.key === " ") {
-              event.preventDefault();
-              const name = d.properties && d.properties.name;
-              const dir = stateNameToDirRegion[name] || "central";
-              if (name === "Puerto Rico") renderRegion("international");
-              else renderRegion(dir);
+            if (event.key !== "Enter" && event.key !== " ") return;
+            event.preventDefault();
+            const name = d.properties && d.properties.name;
+            const st = STATE_NAME_TO_STUSPS[name];
+            if (!st) return;
+            if (st === "PR") {
+              setRegionAndState("southeast", "PR");
+              return;
             }
+            const reg = STUSPS_TO_NOAA_REGION[st];
+            if (name === "Hawaii") {
+              setRegionAndState("pacific_islands", "HI");
+              return;
+            }
+            if (name === "Alaska") {
+              setRegionAndState("alaska", "AK");
+              return;
+            }
+            setRegionAndState(reg || "west_coast", st);
           });
 
         syncMapHighlight();
@@ -430,6 +744,7 @@
       }
     }
 
+    fillStateSelect();
     await initMap();
     await loadJobs();
   </script>
