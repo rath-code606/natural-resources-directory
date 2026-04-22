@@ -1,0 +1,42 @@
+[
+  {
+    "id": "noaa-swfsc-example",
+    "name": "NOAA Southwest Fisheries Science Center (example)",
+    "category": "fisheries_aquatic",
+    "summary": "Federal science center that conducts research on living marine resources and their habitats along the U.S. West Coast and in the Pacific; central to U.S. fisheries and aquatic ecosystem management.",
+    "url": "https://www.fisheries.noaa.gov/about/southwest-fisheries-science-center",
+    "careers_url": "https://www.fisheries.noaa.gov/about/southwest-fisheries-science-center#careers",
+    "location": { "country": "US", "region": "west_coast", "state": "CA" },
+    "tags": ["federal", "marine", "fisheries_science"]
+  },
+  {
+    "id": "usfws-example",
+    "name": "U.S. Fish and Wildlife Service (example row)",
+    "category": "wildlife_land",
+    "summary": "Federal agency whose primary work is wildlife conservation, recovery of at-risk species, and stewardship of the National Wildlife Refuge System and other public lands and waters in partnership with states and Tribes.",
+    "url": "https://www.fws.gov/",
+    "careers_url": "https://www.fws.gov/careers",
+    "location": { "country": "US", "region": "greater_atlantic", "state": "DC", "us_national": true },
+    "tags": ["federal", "wildlife", "refuges", "habitat"]
+  },
+  {
+    "id": "tnc-example",
+    "name": "The Nature Conservancy (example row)",
+    "category": "conservation_ngo",
+    "summary": "Large non-governmental organization that protects lands and waters through science, voluntary stewardship, and policy partnerships; a typical conservation NGO entry for the directory.",
+    "url": "https://www.nature.org/",
+    "careers_url": "https://www.nature.org/en-us/about-us/careers/",
+    "location": { "country": "US", "region": "greater_atlantic", "state": "VA", "us_national": true },
+    "tags": ["ngo", "land_trusts", "marine", "policy"]
+  },
+  {
+    "id": "wdfw-example",
+    "name": "Washington Department of Fish and Wildlife (example row)",
+    "category": "state_agency",
+    "summary": "State natural resource agency responsible for managing fish, wildlife, and their habitats in Washington; an exemplar of a state fish and game / wildlife department entry.",
+    "url": "https://wdfw.wa.gov/",
+    "careers_url": "https://wdfw.wa.gov/jobs",
+    "location": { "country": "US", "region": "west_coast", "state": "WA" },
+    "tags": ["state", "fisheries", "wildlife", "enforcement"]
+  }
+]

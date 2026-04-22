@@ -1,0 +1,67 @@
+Natural resource management directory — entry requirements (v1)
+================================================================
+
+PURPOSE
+  Each row is one ORGANIZATION whose core mission is natural resource
+  management (NRM) in fisheries, wildlife/lands, state-level stewardship,
+  or non-profit conservation. Job boards and career URLs are the usual
+  link target, but the row is about the org, not a single job posting.
+
+REQUIRED FIELDS (every record)
+  id
+    - Stable, unique, lowercase kebab-case (e.g. "wdfw", "deltawaterfowl").
+    - Never rename once live (breaks deep links and diffs).
+  name
+    - Official public name of the organization.
+  category (exactly one)
+    - fisheries_aquatic   — primary focus on fish, aquatic species, or
+        marine/ freshwater science and management (e.g. labs, fishery
+        councils’ science partners, aquatic-focused NGOs).
+    - wildlife_land      — primary focus on terrestrial wildlife, habitat,
+        public lands, refuges, or land management (when that is the main
+        charter).
+    - conservation_ngo   — 501(c)-style or international NGO whose main
+        work is conservation and NRM (not a government agency).
+    - state_agency      — state/territory fish & wildlife, parks, DNR, or
+        equivalent (e.g. WDFW, CDPW).
+  summary
+    - 1–3 plain-language sentences: why the org belongs in this
+      directory and how it does NRM. No marketing fluff; cite the core
+      statutory or mission work.
+  url
+    - Primary website (https).
+  location
+    - country: ISO-3166 alpha-2 (e.g. US).
+    - For US: set region to the NOAA map key (alaska | greater_atlantic |
+      pacific_islands | southeast | west_coast) OR use
+      location.region = international only for rows that are not tied to
+      a specific US point on the map (rare; prefer a real state when known).
+    - Place the pin using ONE of: state, states[], or us_national = true
+      (national scope). See schemas/directory.v1.schema.json for fields.
+
+STRONGLY RECOMMENDED
+  careers_url
+    - Direct jobs/careers/employment page. If missing, the UI can fall back
+      to `url` (documented in the app).
+  provenance.last_verified
+    - Date (YYYY-MM-DD) when links and category were last checked.
+  tags
+    - Short lowercase tokens for future filters, e.g. "salmon", "refuges".
+
+INCLUSION CRITERIA (quality bar)
+  - Organization’s *main* work is NRM or conservation science in service
+    of NRM, not a generic employer that happens to touch nature.
+  - Prefer direct links to official .gov, .org, or clearly official sites.
+  - State agencies: one row per *department* (or per state + commission
+    if you split; be consistent in id naming).
+
+MAP / UI NOTES
+  - The existing map uses NOAA-style US regions; `location.region` and
+    `state` / `states` / `us_national` drive filtering as in
+    us-regional-jobs.html and bird-sites-regional.json.
+  - Add a category filter in the app using `category` (four pillars
+    above).
+
+VALIDATION
+  - JSON Schema: schemas/directory.v1.schema.json
+  - Example rows: data/organizations.example.json

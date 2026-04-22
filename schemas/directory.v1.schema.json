@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rath-code606/natural-resources-directory/schemas/directory.v1.schema.json",
+  "title": "Natural resource management directory entry",
+  "description": "One organization per object. Categorized for map UI (NOAA-style US regions, state) and display filters (Fisheries & aquatic science, Wildlife & land, Conservation NGO, State agency).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "category",
+    "summary",
+    "url",
+    "location"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{0,126}$",
+      "description": "Stable, unique key for routing, diffs, and deduping (kebab-case, no spaces). Never change once published."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "Official organization name as shown on the site or charter."
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "fisheries_aquatic",
+        "wildlife_land",
+        "conservation_ngo",
+        "state_agency"
+      ],
+      "description": "Primary pillar for the directory. Pick the one that best matches the org's core statutory or mission focus."
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 2000,
+      "description": "1–3 sentences: why it belongs here and how it advances natural resource management (NRM). Used in cards; write for a general audience."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Primary website (https preferred)."
+    },
+    "careers_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Direct employment / careers / jobs page. If omitted, the UI may use `url` for the link button (document that behavior in the app)."
+    },
+    "location": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["country"],
+      "description": "Geography for the map. US entries must be placeable in NOAA-style regions and/or states.",
+      "properties": {
+        "country": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$",
+          "description": "ISO 3166-1 alpha-2 (e.g. US, CA, GB). Use US for U.S. organizations."
+        },
+        "region": {
+          "type": "string",
+          "enum": [
+            "alaska",
+            "greater_atlantic",
+            "pacific_islands",
+            "southeast",
+            "west_coast",
+            "international"
+          ],
+          "description": "NOAA Fisheries–style key for the existing US map. Required when country is US. Use `international` only when the listing is not tied to a specific US on-map placement (e.g. truly global HQs) — prefer state/region for US offices when known."
+        },
+        "state": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$",
+          "description": "USPS 2-letter state/territory code (e.g. WA, DC, PR) when a single home base applies."
+        },
+        "states": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z]{2}$"
+          },
+          "minItems": 1,
+          "maxItems": 60,
+          "description": "Use when the org operates across multiple US jurisdictions (e.g. regional project space). Map filtering matches if the selected state is in this list."
+        },
+        "us_national": {
+          "type": "boolean",
+          "default": false,
+          "description": "If true, the listing is treated as US-wide (e.g. national NGO); show when any US state in the org's NOAA region is selected, or as defined in your UI."
+        }
+      },
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1, "maxLength": 64 },
+      "maxItems": 32,
+      "description": "Optional facet tags for future filters (e.g. salmon, easements, water_quality)."
+    },
+    "organization": {
+      "type": "string",
+      "description": "Optional duplicate of `name` for legacy UIs; prefer `name`."
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "How and when the row was vetted. Recommended for 'real data' curation.",
+      "properties": {
+        "last_verified": { "type": "string", "format": "date" },
+        "source_type": {
+          "type": "string",
+          "enum": ["official_website", "state_portal", "public_directory", "partner_list", "other"]
+        },
+        "notes": { "type": "string", "maxLength": 2000 }
+      }
+    }
+  }
+}
