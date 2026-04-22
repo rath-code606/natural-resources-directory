@@ -298,7 +298,11 @@
     import { feature } from "https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/+esm";
 
     const US_ATLAS_STATES = "https://cdn.jsdelivr.net/npm/us-atlas@3.0.0/states-10m.json";
-    const dataUrl = "./data/organizations.json";
+    const DATA_URLS = [
+      "./data/organizations.json",
+      "https://cdn.jsdelivr.net/gh/rath-code606/natural-resources-directory@main/data/organizations.json",
+      "https://raw.githubusercontent.com/rath-code606/natural-resources-directory/main/data/organizations.json"
+    ];
 
     const STATE_NAME_TO_STUSPS = {
       Alabama: "AL",
@@ -737,12 +741,33 @@
       renderOrganizations();
     });
 
+    async function fetchOrganizations() {
+      let lastError = null;
+
+      for (const url of DATA_URLS) {
+        try {
+          const response = await fetch(url, { cache: "no-store" });
+          if (!response.ok) {
+            throw new Error("HTTP " + response.status + " for " + url);
+          }
+
+          const items = await response.json();
+          if (!Array.isArray(items)) {
+            throw new Error("Invalid organizations JSON from " + url);
+          }
+
+          return items;
+        } catch (error) {
+          lastError = error;
+        }
+      }
+
+      throw lastError || new Error("Unable to load organizations data");
+    }
+
     async function loadOrganizations() {
       try {
-        const response = await fetch(dataUrl, { cache: "no-store" });
-        if (!response.ok) throw new Error("Failed to load organizations: " + response.status);
-        const items = await response.json();
-        if (!Array.isArray(items)) throw new Error("Invalid organizations JSON");
+        const items = await fetchOrganizations();
 
         allOrganizations = items.filter((item) => item && item.location && item.location.country === "US");
         regionSelect.value = currentRegion;
