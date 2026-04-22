@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bird Organizations Directory</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      color: #222;
+    }
+
+    .map-page {
+      max-width: 900px;
+      margin: 24px auto;
+      text-align: center;
+      padding: 0 16px 24px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: none;
+      color: #d82e00;
+      cursor: pointer;
+      font-size: 14px;
+      margin-bottom: 10px;
+      padding: 0;
+    }
+
+    .arrow {
+      width: 10px;
+      height: 10px;
+      border-left: 2px solid #d82e00;
+      border-bottom: 2px solid #d82e00;
+      transform: rotate(45deg);
+    }
+
+    .subtitle {
+      color: #666;
+      margin-bottom: 24px;
+    }
+
+    .map-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      text-align: left;
+    }
+
+    .region {
+      border: 2px solid #d82e00;
+      color: #d82e00;
+      padding: 16px 12px;
+      text-decoration: none;
+      font-size: 16px;
+      line-height: 1.35;
+      transition: all 0.2s ease;
+      border-radius: 6px;
+      display: block;
+      background: #fff;
+    }
+
+    .region:hover {
+      background: #d82e00;
+      color: #fff;
+    }
+
+    .region small {
+      display: block;
+      margin-top: 6px;
+      font-size: 12px;
+      opacity: 0.85;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <div class="map-page">
+    <div class="back-container">
+      <button class="back-btn" onclick="history.back();">
+        <span class="arrow"></span>
+        <span class="label">Back</span>
+      </button>
+    </div>
+
+    <h1>Bird Organizations</h1>
+    <p class="subtitle">Live links loaded from GitHub JSON</p>
+
+    <div id="org-grid" class="map-container" aria-live="polite"></div>
+    <p id="status" class="subtitle">Loading organizations...</p>
+  </div>
+
+  <script>
+    (async function () {
+      const jsonUrl = "https://raw.githubusercontent.com/rath-code606/natural-resources-directory/main/bird-sites.json";
+      const grid = document.getElementById("org-grid");
+      const status = document.getElementById("status");
+
+      try {
+        const response = await fetch(jsonUrl, { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error("Request failed: " + response.status);
+        }
+
+        const items = await response.json();
+        if (!Array.isArray(items)) {
+          throw new Error("Unexpected JSON format");
+        }
+
+        grid.innerHTML = "";
+
+        items.forEach((item, index) => {
+          const title = (item && item.title ? String(item.title) : "").trim();
+          const url = (item && item.url ? String(item.url) : "").trim();
+          if (!title || !url) {
+            return;
+          }
+
+          const linkEl = document.createElement("a");
+          linkEl.className = "region";
+          linkEl.href = url;
+          linkEl.target = "_blank";
+          linkEl.rel = "noopener noreferrer";
+          linkEl.dataset.itemId = "org-" + index;
+
+          const titleEl = document.createElement("strong");
+          titleEl.textContent = title;
+
+          const urlEl = document.createElement("small");
+          urlEl.textContent = url;
+
+          linkEl.appendChild(titleEl);
+          linkEl.appendChild(urlEl);
+          grid.appendChild(linkEl);
+        });
+
+        status.textContent = grid.children.length
+          ? "Loaded " + grid.children.length + " organizations."
+          : "No organizations found in JSON.";
+      } catch (error) {
+        status.textContent = "Could not load organizations right now.";
+        console.error("Load error:", error);
+      }
+    })();
+  </script>
+</body>
+</html>
