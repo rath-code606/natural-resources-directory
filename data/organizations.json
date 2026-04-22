@@ -1,0 +1,1430 @@
+[
+  {
+    "id": "noaa-fisheries-nmfs",
+    "name": "NOAA National Marine Fisheries Service (NOAA Fisheries)",
+    "category": "fisheries_aquatic",
+    "summary": "Federal agency (within NOAA) that stewards the nation’s ocean fisheries, protected species, and marine habitats, conducts science, sets and implements management under the Magnuson-Stevens Act, and works with Councils, states, and international partners. Source: fisheries.noaa.gov.",
+    "url": "https://www.fisheries.noaa.gov/",
+    "careers_url": "https://www.fisheries.noaa.gov/about-us/careers",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "MD"
+    },
+    "tags": [
+      "federal",
+      "marine",
+      "fisheries_management",
+      "protected_species"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "Headquarters in Silver Spring, MD area; also see regional offices. NOAA regions page: https://www.fisheries.noaa.gov/regions"
+    }
+  },
+  {
+    "id": "usfws",
+    "name": "U.S. Fish and Wildlife Service",
+    "category": "wildlife_land",
+    "summary": "Federal agency within the Department of the Interior that conserves, protects, and enhances fish, wildlife, plants, and their habitats, including the National Wildlife Refuge System, ESA, and international treaty programs. Source: fws.gov.",
+    "url": "https://www.fws.gov/",
+    "careers_url": "https://www.fws.gov/careers/",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "DC",
+      "us_national": true
+    },
+    "tags": [
+      "federal",
+      "refuges",
+      "esa",
+      "hunting_fishing_on_refuges"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website"
+    }
+  },
+  {
+    "id": "usfs",
+    "name": "U.S. Forest Service",
+    "category": "wildlife_land",
+    "summary": "Federal agency (USDA) that manages 193 million acres of national forests and grasslands, balancing timber, recreation, watersheds, and wildlife habitat, with a major role in public land stewardship and NRM. Source: fs.usda.gov.",
+    "url": "https://www.fs.usda.gov/",
+    "careers_url": "https://www.fs.usda.gov/working-with-us/jobs",
+    "location": {
+      "country": "US",
+      "region": "west_coast",
+      "state": "DC",
+      "us_national": true
+    },
+    "tags": [
+      "federal",
+      "forests",
+      "grazing",
+      "recreation"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "National HQ; forest regions nationwide."
+    }
+  },
+  {
+    "id": "blm",
+    "name": "Bureau of Land Management",
+    "category": "wildlife_land",
+    "summary": "Federal land management agency (Interior) for more public surface acres than any other U.S. agency, managing rangeland, oil and gas, minerals, recreation, and wildlife habitat in multiple use under law and NEPA. Source: blm.gov.",
+    "url": "https://www.blm.gov/",
+    "careers_url": "https://www.blm.gov/careers/",
+    "location": {
+      "country": "US",
+      "region": "west_coast",
+      "state": "DC",
+      "us_national": true
+    },
+    "tags": [
+      "federal",
+      "public_lands",
+      "rangeland",
+      "recreation"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website"
+    }
+  },
+  {
+    "id": "nps",
+    "name": "National Park Service",
+    "category": "wildlife_land",
+    "summary": "Federal bureau (Interior) that preserves park units, cultural resources, and natural systems and provides visitor services, science, and resource stewardship in national parks and related sites. Source: nps.gov.",
+    "url": "https://www.nps.gov/",
+    "careers_url": "https://www.nps.gov/personnel",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "DC",
+      "us_national": true
+    },
+    "tags": [
+      "federal",
+      "parks",
+      "cultural_resources",
+      "stewardship"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website"
+    }
+  },
+  {
+    "id": "tnc",
+    "name": "The Nature Conservancy",
+    "category": "conservation_ngo",
+    "summary": "Global nonprofit that protects lands and waters through science, public-private partnerships, and easements, with a major U.S. program for habitat conservation, climate, and water security for people and nature. Source: nature.org.",
+    "url": "https://www.nature.org/",
+    "careers_url": "https://www.nature.org/en-us/about-us/careers/",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "VA",
+      "us_national": true
+    },
+    "tags": [
+      "ngo",
+      "land_trusts",
+      "marine",
+      "climate"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website"
+    }
+  },
+  {
+    "id": "audubon",
+    "name": "National Audubon Society",
+    "category": "conservation_ngo",
+    "summary": "U.S. nonprofit that uses science, policy, and community engagement to protect birds, wildlife, and the habitats on which they depend, including working lands, coasts, and climate refugia. Source: audubon.org.",
+    "url": "https://www.audubon.org/",
+    "careers_url": "https://www.audubon.org/careers",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "NY",
+      "us_national": true
+    },
+    "tags": [
+      "ngo",
+      "birds",
+      "habitat",
+      "policy"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website"
+    }
+  },
+  {
+    "id": "defenders",
+    "name": "Defenders of Wildlife",
+    "category": "conservation_ngo",
+    "summary": "U.S. nonprofit that protects native animals and their habitats in North America through legal advocacy, on-the-ground conservation, and policy work focused on keystone, carnivore, and migratory species. Source: defenders.org.",
+    "url": "https://defenders.org/",
+    "careers_url": "https://defenders.org/careers",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "DC"
+    },
+    "tags": [
+      "ngo",
+      "esa",
+      "policy",
+      "carnivores"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website"
+    }
+  },
+  {
+    "id": "ducks-unlimited",
+    "name": "Ducks Unlimited, Inc.",
+    "category": "wildlife_land",
+    "summary": "Non-profit conservation organization dedicated to the conservation, restoration, and management of wetlands and waterfowl habitat in North America, with science-based delivery of habitat projects. Source: ducks.org.",
+    "url": "https://www.ducks.org/",
+    "careers_url": "https://www.ducks.org/about-ducks-unlimited/employment",
+    "location": {
+      "country": "US",
+      "region": "southeast",
+      "state": "TN"
+    },
+    "tags": [
+      "ngo",
+      "wetlands",
+      "waterfowl",
+      "private_lands"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "Memphis, TN; national and Canada programs (see international site for Canada career pages)."
+    }
+  },
+  {
+    "id": "trout-unlimited",
+    "name": "Trout Unlimited",
+    "category": "fisheries_aquatic",
+    "summary": "Non-profit dedicated to the conservation, protection, and restoration of North America’s coldwater fisheries and their watersheds, through science, on-the-ground projects, and volunteer chapters. Source: tu.org.",
+    "url": "https://www.tu.org/",
+    "careers_url": "https://www.tu.org/about-tu/employment",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "VA"
+    },
+    "tags": [
+      "ngo",
+      "coldwater",
+      "salmonids",
+      "watersheds"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website"
+    }
+  },
+  {
+    "id": "american-fisheries-society",
+    "name": "American Fisheries Society",
+    "category": "fisheries_aquatic",
+    "summary": "Professional society that advances global fisheries, aquatic resource science, and NRM through journals, standards, and meetings; supports careers and public understanding of fish resources. Source: fisheries.org.",
+    "url": "https://fisheries.org/",
+    "careers_url": "https://jobs.fisheries.org/",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "MD"
+    },
+    "tags": [
+      "professional_society",
+      "science",
+      "standards"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website"
+    }
+  },
+  {
+    "id": "nfwf",
+    "name": "National Fish and Wildlife Foundation",
+    "category": "conservation_ngo",
+    "summary": "Congressional chartered nonprofit (NFWF) that works with the public and private sector to protect and restore fish, wildlife, plants, and habitats in the U.S. through grantmaking and public-private delivery. Source: nfwf.org.",
+    "url": "https://www.nfwf.org/",
+    "careers_url": "https://www.nfwf.org/About-Us/Employment",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "DC"
+    },
+    "tags": [
+      "ngo",
+      "grants",
+      "partnerships",
+      "habitat"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website"
+    }
+  },
+  {
+    "id": "alabama-dcnr",
+    "name": "Alabama Department of Conservation and Natural Resources",
+    "category": "state_agency",
+    "summary": "The lead state agency in Alabama for conservation of fish, game, and aquatic and terrestrial habitats, including public lands, hunting and fishing, and law enforcement on natural resources.",
+    "url": "https://www.outdooralabama.com/",
+    "careers_url": "https://www.outdooralabama.com/",
+    "location": {
+      "country": "US",
+      "region": "southeast",
+      "state": "AL"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "alaska-dfg",
+    "name": "Alaska Department of Fish and Game",
+    "category": "state_agency",
+    "summary": "Alaska’s principal state agency for science-based management, research, and regulation of the state’s fish and wildlife, including commercial and subsistence fisheries and enforcement.",
+    "url": "https://www.adfg.alaska.gov/",
+    "careers_url": "https://www.careers.adfg.alaska.gov/",
+    "location": {
+      "country": "US",
+      "region": "alaska",
+      "state": "AK"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "arizona-azgfd",
+    "name": "Arizona Game and Fish Department",
+    "category": "state_agency",
+    "summary": "State agency responsible for managing Arizona’s wildlife and fisheries, habitat conservation, and outdoor recreation, including public hunting, fishing, and law enforcement in service of the state’s wildlife and aquatic resources.",
+    "url": "https://www.azgfd.com/",
+    "careers_url": "https://www.azgfd.com/careers/",
+    "location": {
+      "country": "US",
+      "region": "west_coast",
+      "state": "AZ"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "arkansas-agfc",
+    "name": "Arkansas Game and Fish Commission",
+    "category": "state_agency",
+    "summary": "State commission that manages and conserves fish and wildlife and their habitats in Arkansas through regulations, public land management, and science-driven restoration.",
+    "url": "https://www.agfc.com/",
+    "careers_url": "https://www.agfc.com/employment/",
+    "location": {
+      "country": "US",
+      "region": "southeast",
+      "state": "AR"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "california-cdfw",
+    "name": "California Department of Fish and Wildlife",
+    "category": "state_agency",
+    "summary": "California’s primary agency for the conservation, protection, and management of fish, wildlife, and native plants and for sustainable use of the state’s water-related natural resources and habitats.",
+    "url": "https://wildlife.ca.gov/",
+    "careers_url": "https://wildlife.ca.gov/Employment",
+    "location": {
+      "country": "US",
+      "region": "west_coast",
+      "state": "CA"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "colorado-cpw",
+    "name": "Colorado Parks and Wildlife",
+    "category": "state_agency",
+    "summary": "State agency that manages fish and wildlife, state parks, and outdoor recreation in Colorado, combining biological science, habitat stewardship, and public trust resource management on behalf of the people of Colorado.",
+    "url": "https://cpw.state.co.us/",
+    "careers_url": "https://cpw.state.co.us/aboutus/Pages/Employment.aspx",
+    "location": {
+      "country": "US",
+      "region": "west_coast",
+      "state": "CO"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "connecticut-deep-fw",
+    "name": "Connecticut Department of Energy and Environmental Protection (Wildlife & Fisheries)",
+    "category": "state_agency",
+    "summary": "State agency (DEEP) that protects air, water, and natural resources, including the Bureau of Natural Resources’ fish and wildlife programs, habitat protection, and outdoor recreation in Connecticut.",
+    "url": "https://portal.ct.gov/deep",
+    "careers_url": "https://portal.ct.gov/deep/about/employment--internships/employment--internships",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "CT"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "delaware-dnrec-fw",
+    "name": "Delaware Department of Natural Resources and Environmental Control (Fish & Wildlife)",
+    "category": "state_agency",
+    "summary": "State agency for Delaware’s environment and natural resources, including fish and wildlife conservation, public lands, and recreational fisheries and hunting programs.",
+    "url": "https://dnrec.delaware.gov/fw/",
+    "careers_url": "https://dnrec.delaware.gov/work-here",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "DE"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "florida-fwc",
+    "name": "Florida Fish and Wildlife Conservation Commission",
+    "category": "state_agency",
+    "summary": "State commission that manages and regulates Florida’s fish and wildlife, balancing conservation, law enforcement, and public use of the state’s diverse natural resources in coastal and inland systems.",
+    "url": "https://myfwc.com/",
+    "careers_url": "https://myfwc.com/get-involved/employment",
+    "location": {
+      "country": "US",
+      "region": "southeast",
+      "state": "FL"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "georgia-dnr",
+    "name": "Georgia Department of Natural Resources (Wildlife Resources Division)",
+    "category": "state_agency",
+    "summary": "State agency for wildlife, fisheries, state parks, and coastal management in Georgia, including public hunting, fishing, and habitat and species management.",
+    "url": "https://gadnr.org/",
+    "careers_url": "https://gadnr.org/employment",
+    "location": {
+      "country": "US",
+      "region": "southeast",
+      "state": "GA"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "hawaii-dofaw",
+    "name": "Hawaii Department of Land and Natural Resources (Division of Forestry and Wildlife)",
+    "category": "state_agency",
+    "summary": "State division responsible for the conservation, management, and protection of native species and ecosystems and public hunting and other programs on forest reserves and public lands in Hawaii.",
+    "url": "https://dlnr.hawaii.gov/dofaw/",
+    "careers_url": "https://dlnr.hawaii.gov/jobs/",
+    "location": {
+      "country": "US",
+      "region": "pacific_islands",
+      "state": "HI"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "idaho-idfg",
+    "name": "Idaho Department of Fish and Game",
+    "category": "state_agency",
+    "summary": "Idaho’s lead agency for the conservation, restoration, and sustainable use of the state’s fish, wildlife, and their habitats, including public hunting, fishing, and field science.",
+    "url": "https://idfg.idaho.gov/",
+    "careers_url": "https://idfg.idaho.gov/job-opportunities",
+    "location": {
+      "country": "US",
+      "region": "west_coast",
+      "state": "ID"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "illinois-dnr",
+    "name": "Illinois Department of Natural Resources",
+    "category": "state_agency",
+    "summary": "State DNR for Illinois’ land, water, and wildlife, including state parks, conservation police, and fisheries and wildlife management across the state’s diverse ecosystems.",
+    "url": "https://www.illinois.gov/dnr",
+    "careers_url": "https://www2.illinois.gov/dnr/employmentopportunities/Pages/default.aspx",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "IL"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "indiana-dnr",
+    "name": "Indiana Department of Natural Resources",
+    "category": "state_agency",
+    "summary": "State agency for Indiana’s public lands, fish and wildlife, and outdoor recreation, including the Division of Fish and Wildlife and conservation law enforcement.",
+    "url": "https://www.in.gov/dnr/",
+    "careers_url": "https://www.in.gov/dnr/employment-internships/employment",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "IN"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "iowa-dnr",
+    "name": "Iowa Department of Natural Resources",
+    "category": "state_agency",
+    "summary": "Iowa DNR’s mission includes fish and wildlife management, state parks, water quality, and natural resource management with science and public access programs on behalf of the people of Iowa.",
+    "url": "https://www.iowadnr.gov/",
+    "careers_url": "https://www.iowadnr.gov/About-DNR/Employment-Internships/How-to-Apply",
+    "location": {
+      "country": "US",
+      "region": "southeast",
+      "state": "IA"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "kansas-wpw",
+    "name": "Kansas Department of Wildlife, Parks and Tourism (Wildlife, Fisheries, and Boating)",
+    "category": "state_agency",
+    "summary": "Kansas’ lead agency for wildlife and fisheries resources, public lands, and outdoor recreation, including research, public hunting, fishing, and habitat programs.",
+    "url": "https://ksoutdoors.com/",
+    "careers_url": "https://ksoutdoors.com/Jobs-About-Us",
+    "location": {
+      "country": "US",
+      "region": "southeast",
+      "state": "KS"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "kentucky-dfw",
+    "name": "Kentucky Department of Fish and Wildlife Resources",
+    "category": "state_agency",
+    "summary": "State agency for conservation, restoration, and responsible use of Kentucky’s fish, wildlife, and their habitats, including law enforcement, public access, and agency lands.",
+    "url": "https://fw.ky.gov/",
+    "careers_url": "https://fw.ky.gov/About/Employment",
+    "location": {
+      "country": "US",
+      "region": "southeast",
+      "state": "KY"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "louisiana-ldwf",
+    "name": "Louisiana Department of Wildlife and Fisheries",
+    "category": "state_agency",
+    "summary": "Louisiana’s agency for the conservation, protection, and management of the state’s fish, wildlife, and outdoors resources, including commercial and recreational fisheries and coastal and inland management.",
+    "url": "https://www.wlf.louisiana.gov/",
+    "careers_url": "https://www.civilservice.louisiana.gov/employment-ops/",
+    "location": {
+      "country": "US",
+      "region": "southeast",
+      "state": "LA"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "maine-ifw",
+    "name": "Maine Department of Inland Fisheries and Wildlife",
+    "category": "state_agency",
+    "summary": "State agency for Maine’s inland fisheries, wildlife, and habitat, including research, public hunting and angling, and landowner relations for fish and game conservation in the state’s large rural landscape.",
+    "url": "https://www.mefishwildlife.com/",
+    "careers_url": "https://www.mefishwildlife.com/about/employment",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "ME"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "maryland-dnr",
+    "name": "Maryland Department of Natural Resources (Wildlife and Heritage Service)",
+    "category": "state_agency",
+    "summary": "State DNR for Maryland’s public lands, fisheries, wildlife, and Chesapeake natural resources, including restoration, public access, and law enforcement in support of the state’s trust resources.",
+    "url": "https://dnr.maryland.gov/",
+    "careers_url": "https://dnr.maryland.gov/Pages/employment-volunteer.aspx",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "MD"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "massachusetts-mdfg",
+    "name": "Massachusetts Division of Fisheries and Wildlife",
+    "category": "state_agency",
+    "summary": "State division that manages the conservation of the Commonwealth’s fish, wildlife, and their habitats, including public hunting, fishing, and species recovery on behalf of the people of Massachusetts.",
+    "url": "https://www.mass.gov/orgs/division-of-fisheries-and-wildlife",
+    "careers_url": "https://www.mass.gov/orgs/division-of-fisheries-and-wildlife#work-with-us",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "MA"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "michigan-dnr",
+    "name": "Michigan Department of Natural Resources",
+    "category": "state_agency",
+    "summary": "Michigan DNR’s mission includes the stewardship of state public lands, waters, and wildlife, including state parks, fisheries, wildlife, and law enforcement in support of the state’s natural resource legacy.",
+    "url": "https://www.michigan.gov/dnr",
+    "careers_url": "https://www.michigan.gov/dnr/employment",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "MI"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "minnesota-dnr",
+    "name": "Minnesota Department of Natural Resources",
+    "category": "state_agency",
+    "summary": "State agency for Minnesota’s fish, wildlife, state lands, and outdoor recreation, including large-scale public land, lake, and river stewardship and public trust services.",
+    "url": "https://www.dnr.state.mn.us/",
+    "careers_url": "https://www.dnr.state.mn.us/jobs/index.html",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "MN"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "mississippi-mdwfp",
+    "name": "Mississippi Department of Wildlife, Fisheries, and Parks",
+    "category": "state_agency",
+    "summary": "State agency for Mississippi’s fish, wildlife, state parks, and outdoor recreation, including public hunting, fishing, and conservation law enforcement in support of the state’s natural resources.",
+    "url": "https://www.mdwfp.com/",
+    "careers_url": "https://www.mdwfp.com/employment",
+    "location": {
+      "country": "US",
+      "region": "southeast",
+      "state": "MS"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "missouri-mdc",
+    "name": "Missouri Department of Conservation",
+    "category": "state_agency",
+    "summary": "Missouri’s conservation department dedicated to the protection, conservation, and wise use of the state’s fish, wildlife, and forest resources through science, field programs, and public access.",
+    "url": "https://mdc.mo.gov/",
+    "careers_url": "https://mdc.mo.gov/careers",
+    "location": {
+      "country": "US",
+      "region": "southeast",
+      "state": "MO"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "montana-fwp",
+    "name": "Montana Fish, Wildlife & Parks",
+    "category": "state_agency",
+    "summary": "State agency for Montana’s fish, wildlife, state parks, and outdoor culture, with broad responsibilities for public lands, hunting, fishing, and natural resource law enforcement in the Northern Rockies.",
+    "url": "https://fwp.mt.gov/",
+    "careers_url": "https://fwp.mt.gov/careers",
+    "location": {
+      "country": "US",
+      "region": "west_coast",
+      "state": "MT"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "nebraska-negf",
+    "name": "Nebraska Game and Parks Commission",
+    "category": "state_agency",
+    "summary": "State commission that conserves, enhances, and promotes Nebraska’s fish, wildlife, and outdoor recreation, including public lands, parks, and field science across the state’s ecosystems.",
+    "url": "https://outdoornebraska.gov/",
+    "careers_url": "https://outdoornebraska.gov/employment",
+    "location": {
+      "country": "US",
+      "region": "southeast",
+      "state": "NE"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "nevada-ndow",
+    "name": "Nevada Department of Wildlife",
+    "category": "state_agency",
+    "summary": "Nevada’s primary agency for the conservation, protection, and management of the state’s fish, wildlife, and their habitats, including public hunting, fishing, and arid-lands wildlife programs.",
+    "url": "https://www.ndow.org/",
+    "careers_url": "https://www.ndow.org/about-ndow/careers",
+    "location": {
+      "country": "US",
+      "region": "west_coast",
+      "state": "NV"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "new-hampshire-nhfish",
+    "name": "New Hampshire Fish and Game Department",
+    "category": "state_agency",
+    "summary": "State agency for the conservation, management, and protection of New Hampshire’s fish, wildlife, and marine resources, including law enforcement, public access, and habitat work.",
+    "url": "https://www.wildnh.com/",
+    "careers_url": "https://www.wildnh.com/employment/employmentopportunities.html",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "NH"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "new-jersey-njdep-fw",
+    "name": "New Jersey Department of Environmental Protection (Fish and Wildlife)",
+    "category": "state_agency",
+    "summary": "State DEP’s Division of Fish and Wildlife manages the conservation of New Jersey’s fish, wildlife, and their habitats, including regulatory programs, research, and public angling and hunting in a densely developed state.",
+    "url": "https://dep.nj.gov/njfw/index/",
+    "careers_url": "https://dep.nj.gov/employment/",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "NJ"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "new-mexico-nmfd",
+    "name": "New Mexico Department of Game and Fish",
+    "category": "state_agency",
+    "summary": "State department that conserves, protects, and enhances New Mexico’s fish and wildlife, including public land programs, arid-lands and riverine habitat management, and public hunting and fishing.",
+    "url": "https://www.wildlife.state.nm.us/",
+    "careers_url": "https://www.wildlife.state.nm.us/employment/",
+    "location": {
+      "country": "US",
+      "region": "southeast",
+      "state": "NM"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "new-york-nydec",
+    "name": "New York State Department of Environmental Conservation",
+    "category": "state_agency",
+    "summary": "State DEC is New York’s lead environmental agency, with broad authority over fish and wildlife, lands and forests, water, and the conservation and sustainable use of the state’s natural resources.",
+    "url": "https://www.dec.ny.gov/",
+    "careers_url": "https://www.dec.ny.gov/jobs/190.html",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "NY"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "north-carolina-ncwrc",
+    "name": "North Carolina Wildlife Resources Commission",
+    "category": "state_agency",
+    "summary": "State commission that conserves, protects, and sustains the state’s fish, wildlife, and their habitats, including public access, public lands, and wildlife law enforcement in North Carolina.",
+    "url": "https://www.ncwildlife.org/",
+    "careers_url": "https://www.ncwildlife.org/work-with-us",
+    "location": {
+      "country": "US",
+      "region": "southeast",
+      "state": "NC"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "north-dakota-ndgp",
+    "name": "North Dakota Game and Fish Department",
+    "category": "state_agency",
+    "summary": "State agency for North Dakota’s fish, wildlife, and public hunting and angling, including private-lands partnerships, habitat, and public trust management on the Great Plains and Prairie Pothole Region.",
+    "url": "https://gf.nd.gov/",
+    "careers_url": "https://gf.nd.gov/employment",
+    "location": {
+      "country": "US",
+      "region": "west_coast",
+      "state": "ND"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "ohio-ohiodnr",
+    "name": "Ohio Department of Natural Resources (Division of Wildlife)",
+    "category": "state_agency",
+    "summary": "Ohio DNR’s portfolio includes the Division of Wildlife and conservation of the state’s fish, wildlife, public lands, and waters, with science, public access, and law enforcement programs.",
+    "url": "https://ohiodnr.gov/",
+    "careers_url": "https://ohiodnr.gov/employment/employmentopportunities",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "OH"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "oklahoma-odwc",
+    "name": "Oklahoma Department of Wildlife Conservation",
+    "category": "state_agency",
+    "summary": "State department that conserves, protects, and enhances Oklahoma’s fish, wildlife, and their habitats, including public trust resources, public hunting and fishing, and agency land management.",
+    "url": "https://www.wildlifedepartment.com/",
+    "careers_url": "https://www.wildlifedepartment.com/career-opportunities",
+    "location": {
+      "country": "US",
+      "region": "southeast",
+      "state": "OK"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "oregon-odfw",
+    "name": "Oregon Department of Fish and Wildlife",
+    "category": "state_agency",
+    "summary": "Oregon’s lead state agency for the conservation, protection, and management of the state’s fish, wildlife, and their habitats, including anadromous fish, public lands, and public engagement.",
+    "url": "https://www.dfw.state.or.us/",
+    "careers_url": "https://www.dfw.state.or.us/agency/employment",
+    "location": {
+      "country": "US",
+      "region": "west_coast",
+      "state": "OR"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "pennsylvania-pgc",
+    "name": "Pennsylvania Game Commission",
+    "category": "state_agency",
+    "summary": "State commission for Pennsylvania’s game animals, furbearers, and their habitats, with extensive field programs, law enforcement, and science for wildlife conservation on the Commonwealth’s mixed landscapes.",
+    "url": "https://www.pgc.pa.gov/",
+    "careers_url": "https://www.pgc.pa.gov/employment",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "PA"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "puerto-rico-drnpr",
+    "name": "Puerto Rico Department of Natural and Environmental Resources",
+    "category": "state_agency",
+    "summary": "Insular lead agency for Puerto Rico’s natural resources, protected areas, and environmental stewardship, including coastal and terrestrial conservation under federal and territorial frameworks.",
+    "url": "https://www.drn.pr.gov/",
+    "careers_url": "https://www.drn.pr.gov/empleo/",
+    "location": {
+      "country": "US",
+      "region": "southeast",
+      "state": "PR"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "rhode-island-dem",
+    "name": "Rhode Island Department of Environmental Management (Division of Fish and Wildlife)",
+    "category": "state_agency",
+    "summary": "State DEM in Rhode Island protects the environment, air, water, and natural resources, including the Division of Fish and Wildlife’s management of the state’s small but diverse coastal and inland systems.",
+    "url": "https://www.dem.ri.gov/programs",
+    "careers_url": "https://www.dem.ri.gov/employment",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "RI"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "south-carolina-scdnr",
+    "name": "South Carolina Department of Natural Resources",
+    "category": "state_agency",
+    "summary": "State agency for South Carolina’s land, water, and wildlife, with responsibilities for fish and shellfish, wildlife, and marine and inland conservation law enforcement in the Carolinas and Atlantic coast.",
+    "url": "https://www.dnr.sc.gov/",
+    "careers_url": "https://www.dnr.sc.gov/employment/employmentopportunities.html",
+    "location": {
+      "country": "US",
+      "region": "southeast",
+      "state": "SC"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "south-dakota-sdgfp",
+    "name": "South Dakota Game, Fish and Parks",
+    "category": "state_agency",
+    "summary": "State agency for South Dakota’s game, fish, and parks, including the conservation and management of the state’s wildlife, fisheries, and outdoor recreation in Great Plains and river systems.",
+    "url": "https://gfp.sd.gov/",
+    "careers_url": "https://gfp.sd.gov/employmentopportunities/",
+    "location": {
+      "country": "US",
+      "region": "west_coast",
+      "state": "SD"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "tennessee-tn-twra",
+    "name": "Tennessee Wildlife Resources Agency",
+    "category": "state_agency",
+    "summary": "Tennessee’s agency for the conservation, management, and protection of the state’s fish, wildlife, and their habitats, including public access, public lands, and game and nongame programs.",
+    "url": "https://www.tn.gov/twra.html",
+    "careers_url": "https://www.tn.gov/twra/apply-for-a-job/career-opportunities",
+    "location": {
+      "country": "US",
+      "region": "southeast",
+      "state": "TN"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "texas-tpwd",
+    "name": "Texas Parks and Wildlife Department",
+    "category": "state_agency",
+    "summary": "Texas’ lead state agency for fish and wildlife, state parks, and conservation law enforcement, with a large public trust portfolio in coastal, inland, and border landscapes.",
+    "url": "https://tpwd.texas.gov/",
+    "careers_url": "https://tpwd.texas.gov/business/employmentopportunities/",
+    "location": {
+      "country": "US",
+      "region": "southeast",
+      "state": "TX"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "utah-utah-dwr",
+    "name": "Utah Division of Wildlife Resources",
+    "category": "state_agency",
+    "summary": "State division that conserves, protects, and manages Utah’s fish, wildlife, and their habitats, with programs for public hunting, fishing, and species recovery in the West’s dryland and high-elevation systems.",
+    "url": "https://wildlife.utah.gov/",
+    "careers_url": "https://wildlife.utah.gov/employment",
+    "location": {
+      "country": "US",
+      "region": "west_coast",
+      "state": "UT"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "vermont-fish",
+    "name": "Vermont Fish and Wildlife Department",
+    "category": "state_agency",
+    "summary": "Vermont state agency for the conservation, management, and protection of the state’s fish, wildlife, and their habitats, including public access, warden service, and cold-water and forest wildlife programs.",
+    "url": "https://vtfishandwildlife.com/",
+    "careers_url": "https://vtfishandwildlife.com/career-opportunities",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "VT"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "virginia-dwr",
+    "name": "Virginia Department of Wildlife Resources",
+    "category": "state_agency",
+    "summary": "Virginia’s primary agency for fish, wildlife, and their habitats, including public hunting, fishing, boating access, and field science in diverse Appalachian and mid-Atlantic ecosystems.",
+    "url": "https://dwr.virginia.gov/",
+    "careers_url": "https://dwr.virginia.gov/career-opportunities/",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "VA"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "washington-wdfw",
+    "name": "Washington Department of Fish and Wildlife",
+    "category": "state_agency",
+    "summary": "WDFW is Washington’s state agency for fish, wildlife, and their ecosystems, with science, public lands, harvest management, and enforcement across marine, anadromous, and forested landscapes in the Pacific Northwest.",
+    "url": "https://wdfw.wa.gov/",
+    "careers_url": "https://wdfw.wa.gov/jobs",
+    "location": {
+      "country": "US",
+      "region": "west_coast",
+      "state": "WA"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "west-virginia-dnr",
+    "name": "West Virginia Division of Natural Resources",
+    "category": "state_agency",
+    "summary": "WVDNR conserves, protects, and manages West Virginia’s fish, wildlife, and their habitats, including public access, public lands, and enforcement in a heavily forested Appalachian state.",
+    "url": "https://wvdnr.gov/",
+    "careers_url": "https://wvdnr.gov/employment",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "WV"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "wisconsin-dnr",
+    "name": "Wisconsin Department of Natural Resources",
+    "category": "state_agency",
+    "summary": "Wisconsin DNR manages the state’s fish, wildlife, forests, public lands, and waters, with large programs for hunting, angling, Great Lakes, and private-land partnerships for conservation in the upper Midwest.",
+    "url": "https://dnr.wisconsin.gov/",
+    "careers_url": "https://dnr.wisconsin.gov/employment",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "WI"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "wyoming-wgfd",
+    "name": "Wyoming Game and Fish Department",
+    "category": "state_agency",
+    "summary": "Western state agency for Wyoming’s big game, fish, and nongame wildlife, and public access and habitat programs across wide-ranging, multiple-use rangeland and high-elevation systems.",
+    "url": "https://wgfd.wyo.gov/",
+    "careers_url": "https://wgfd.wyo.gov/get-involved/employment",
+    "location": {
+      "country": "US",
+      "region": "west_coast",
+      "state": "WY"
+    },
+    "tags": [
+      "state_agency",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website",
+      "notes": "State natural resource or fish and wildlife lead agency. Cross-check: Association of Fish & Wildlife Agencies state directory https://www.fishwildlife.org/ ; some careers route through state civil service portals."
+    }
+  },
+  {
+    "id": "dc-doees",
+    "name": "District of Columbia Department of Energy and Environment (Fisheries and Wildlife Division)",
+    "category": "state_agency",
+    "summary": "The District of Columbia’s lead local environmental and natural resource agency, including fisheries, wildlife, and water programs that manage and protect living resources in the national capital’s urban and riverine systems in coordination with partner agencies.",
+    "url": "https://doee.dc.gov/",
+    "careers_url": "https://doee.dc.gov/service/employment",
+    "location": {
+      "country": "US",
+      "region": "greater_atlantic",
+      "state": "DC"
+    },
+    "tags": [
+      "state_agency",
+      "municipal",
+      "fish_and_wildlife"
+    ],
+    "provenance": {
+      "last_verified": "2026-04-22",
+      "source_type": "official_website"
+    }
+  }
+]

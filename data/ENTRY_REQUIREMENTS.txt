@@ -65,3 +65,18 @@ MAP / UI NOTES
 VALIDATION
   - JSON Schema: schemas/directory.v1.schema.json
   - Example rows: data/organizations.example.json
+  - Curated U.S. directory (federal, NGOs, 50 states + DC + PR): data/organizations.json
+    Built by: data/build-organizations.mjs (re-run to regenerate the JSON).
+
+PRIMARY PUBLIC SOURCES USED FOR data/organizations.json (2026-04-22)
+  - NOAA Fisheries: https://www.fisheries.noaa.gov/ (careers: /about-us/careers)
+  - U.S. Fish and Wildlife Service: https://www.fws.gov/ (careers: /careers)
+  - U.S. Forest Service, BLM, NPS: official .gov sites linked in each record
+  - NGO / professional society: official organization domains (TNC, Audubon, Defenders, DU, TU, AFS, NFWF) — jobs pages on same domains or AFS job board
+  - State / territorial lead fish & wildlife or natural resource agencies: each row’s
+    `url` and `careers_url` point at the agency (or, where applicable, the state
+    civil-service portal). Cross-index: Association of Fish & Wildlife Agencies
+    state agency links — https://www.fishwildlife.org/ (state directory).
+  - U.S. federal regions for map: aligned with directory.v1 and NOAA’s regional
+    description at https://www.fisheries.noaa.gov/regions (interior state grouping
+    for the map follows the same convention documented on us-regional-jobs.html).
