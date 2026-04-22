@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Regional U.S. Jobs Map</title>
+  <title>U.S. Natural Resources Organizations</title>
   <style>
     :root {
       --accent: #d82e00;
+      --accent-soft: #ffe5dc;
       --text: #222;
       --muted: #666;
       --bg: #fff;
@@ -23,7 +24,7 @@
       font-family: Arial, sans-serif;
       color: var(--text);
       background: var(--bg);
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     .page {
@@ -45,7 +46,7 @@
 
     .noaa-note {
       margin: 0 auto 20px;
-      max-width: 720px;
+      max-width: 760px;
       font-size: 13px;
       color: var(--muted);
       text-align: center;
@@ -124,29 +125,6 @@
       text-align: left;
     }
 
-    .intl-btn {
-      margin-top: 12px;
-      max-width: 400px;
-      width: 100%;
-      border: 2px solid var(--accent);
-      background: #fff;
-      color: var(--accent);
-      border-radius: 8px;
-      font-size: 15px;
-      font-weight: 700;
-      padding: 10px 14px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .intl-btn:hover,
-    .intl-btn:focus-visible,
-    .intl-btn.active {
-      background: var(--accent);
-      color: #fff;
-      outline: none;
-    }
-
     .controls {
       display: flex;
       flex-wrap: wrap;
@@ -183,53 +161,84 @@
       background: #fff;
     }
 
-    .jobs-panel {
+    .directory-panel {
       border: 1px solid #eee;
       border-radius: 10px;
       background: #fff;
       padding: 16px;
     }
 
-    .jobs-header {
-      margin: 0 0 12px;
+    .directory-header {
+      margin: 0 0 6px;
       font-size: 22px;
     }
 
-    .jobs-list {
-      display: grid;
-      gap: 10px;
+    .directory-count {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 14px;
     }
 
-    .job-card {
+    .directory-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .org-card {
       border: 1px solid #ffd7cc;
       background: var(--card);
       border-radius: 8px;
-      padding: 10px 12px;
+      padding: 12px 14px;
     }
 
-    .job-title {
-      margin: 0 0 4px;
+    .org-title {
+      margin: 0 0 8px;
       font-weight: 700;
       color: #8c1e00;
     }
 
-    .job-meta {
+    .org-summary {
+      margin: 0 0 10px;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .org-meta,
+    .org-tags {
       margin: 0;
       color: #444;
       font-size: 14px;
     }
 
-    .job-link {
+    .pill {
       display: inline-block;
-      margin-top: 8px;
+      margin-right: 8px;
+      margin-bottom: 6px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #8c1e00;
+      font-size: 12px;
+      font-weight: 700;
+      vertical-align: middle;
+    }
+
+    .org-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .org-link {
       color: var(--accent);
       text-decoration: none;
       font-weight: 600;
       font-size: 14px;
     }
 
-    .job-link:hover,
-    .job-link:focus-visible {
+    .org-link:hover,
+    .org-link:focus-visible {
       text-decoration: underline;
       outline: none;
     }
@@ -243,25 +252,23 @@
 </head>
 <body>
   <main class="page">
-    <h1>U.S. Regional Job Board</h1>
-    <p class="subtitle">Click a state on the map, then narrow listings by NOAA Fisheries region and state.</p>
+    <h1>U.S. Natural Resources Organizations</h1>
+    <p class="subtitle">Browse agencies and conservation organizations by NOAA region, state or territory, and pillar.</p>
     <p class="noaa-note">
-      Regions follow <a href="https://www.fisheries.noaa.gov/regions" rel="noreferrer" target="_blank">NOAA Fisheries regional offices</a>
-      (Alaska, New England/Mid-Atlantic, Pacific Islands, Southeast, West Coast). The West Coast R.O. officially covers
-      <a href="https://www.fisheries.noaa.gov/about/west-coast-regional-office" rel="noreferrer" target="_blank">WA, OR, CA, and ID</a>;
-      other western and northern plains states are grouped with West Coast here for navigation only.
+      Regional grouping follows <a href="https://www.fisheries.noaa.gov/regions" rel="noreferrer" target="_blank">NOAA Fisheries regional offices</a>
+      for navigation. This directory now loads <code>data/organizations.json</code>, including federal agencies, conservation NGOs,
+      and state or territorial natural resource agencies.
     </p>
 
     <section class="map-hero">
       <h2>United States</h2>
       <div class="map-wrap">
-        <div id="us-map-root" class="us-map-root" aria-label="U.S. map — click a state"></div>
+        <div id="us-map-root" class="us-map-root" aria-label="U.S. map - click a state"></div>
         <p class="map-footnote">
           Map data: <a href="https://github.com/topojson/us-atlas" rel="noreferrer" target="_blank">us-atlas</a> (D3 + topojson-client).
         </p>
         <p id="map-geo-error" class="map-error" role="status" style="display:none"></p>
       </div>
-      <button type="button" class="intl-btn" id="intl-btn" aria-pressed="false">International (outside U.S. map)</button>
     </section>
 
     <section class="controls" aria-label="Filters">
@@ -273,11 +280,16 @@
         <label for="state-select">State / territory</label>
         <select id="state-select"></select>
       </div>
+      <div class="control">
+        <label for="category-select">Pillar</label>
+        <select id="category-select"></select>
+      </div>
     </section>
 
-    <section class="jobs-panel">
-      <h2 id="jobs-region-title" class="jobs-header">Jobs</h2>
-      <div id="jobs-list" class="jobs-list" aria-live="polite"></div>
+    <section class="directory-panel">
+      <h2 id="directory-title" class="directory-header">Organizations</h2>
+      <p id="directory-count" class="directory-count"></p>
+      <div id="directory-list" class="directory-list" aria-live="polite"></div>
     </section>
   </main>
 
@@ -286,7 +298,7 @@
     import { feature } from "https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/+esm";
 
     const US_ATLAS_STATES = "https://cdn.jsdelivr.net/npm/us-atlas@3.0.0/states-10m.json";
-    const dataUrl = "https://raw.githubusercontent.com/rath-code606/natural-resources-directory/main/bird-sites-regional.json";
+    const dataUrl = "./data/organizations.json";
 
     const STATE_NAME_TO_STUSPS = {
       Alabama: "AL",
@@ -399,13 +411,12 @@
     };
 
     const REGION_OPTIONS = [
-      { value: "all", label: "All NOAA regions (U.S.)" },
+      { value: "all", label: "All NOAA regions" },
       { value: "alaska", label: "Alaska" },
       { value: "greater_atlantic", label: "New England / Mid-Atlantic (Greater Atlantic)" },
       { value: "pacific_islands", label: "Pacific Islands" },
       { value: "southeast", label: "Southeast" },
-      { value: "west_coast", label: "West Coast" },
-      { value: "international", label: "International" }
+      { value: "west_coast", label: "West Coast" }
     ];
 
     const REGION_LABEL_SHORT = {
@@ -413,8 +424,22 @@
       greater_atlantic: "New England / Mid-Atlantic",
       pacific_islands: "Pacific Islands",
       southeast: "Southeast",
-      west_coast: "West Coast",
-      international: "International"
+      west_coast: "West Coast"
+    };
+
+    const CATEGORY_OPTIONS = [
+      { value: "all", label: "All pillars" },
+      { value: "fisheries_aquatic", label: "Fisheries & aquatic" },
+      { value: "wildlife_land", label: "Wildlife & land" },
+      { value: "conservation_ngo", label: "Conservation NGO" },
+      { value: "state_agency", label: "State / territorial agency" }
+    ];
+
+    const CATEGORY_LABEL = {
+      fisheries_aquatic: "Fisheries & aquatic",
+      wildlife_land: "Wildlife & land",
+      conservation_ngo: "Conservation NGO",
+      state_agency: "State / territorial agency"
     };
 
     const STATE_LABEL = {
@@ -473,209 +498,274 @@
     };
 
     function statesForRegion(regionValue) {
-      if (regionValue === "all" || regionValue === "international") {
+      if (regionValue === "all") {
         return Object.keys(STATE_LABEL).sort((a, b) => STATE_LABEL[a].localeCompare(STATE_LABEL[b]));
       }
       return Object.entries(STUSPS_TO_NOAA_REGION)
-        .filter(([, r]) => r === regionValue)
-        .map(([st]) => st)
+        .filter(([, region]) => region === regionValue)
+        .map(([state]) => state)
         .sort((a, b) => STATE_LABEL[a].localeCompare(STATE_LABEL[b]));
     }
 
-    const jobsTitle = document.getElementById("jobs-region-title");
-    const jobsList = document.getElementById("jobs-list");
-    const intlBtn = document.getElementById("intl-btn");
+    const directoryTitle = document.getElementById("directory-title");
+    const directoryCount = document.getElementById("directory-count");
+    const directoryList = document.getElementById("directory-list");
     const mapRoot = document.getElementById("us-map-root");
     const mapGeoError = document.getElementById("map-geo-error");
     const regionSelect = document.getElementById("region-select");
     const stateSelect = document.getElementById("state-select");
+    const categorySelect = document.getElementById("category-select");
 
-    let allJobs = [];
+    let allOrganizations = [];
     let statePaths = null;
-    let currentRegion = "west_coast";
+    let currentRegion = "all";
     let currentState = "all";
+    let currentCategory = "all";
     const mapWidth = 800;
     const mapHeight = 500;
 
-    REGION_OPTIONS.forEach((opt) => {
-      const o = document.createElement("option");
-      o.value = opt.value;
-      o.textContent = opt.label;
-      regionSelect.appendChild(o);
+    REGION_OPTIONS.forEach((option) => {
+      const element = document.createElement("option");
+      element.value = option.value;
+      element.textContent = option.label;
+      regionSelect.appendChild(element);
+    });
+
+    CATEGORY_OPTIONS.forEach((option) => {
+      const element = document.createElement("option");
+      element.value = option.value;
+      element.textContent = option.label;
+      categorySelect.appendChild(element);
     });
 
     function fillStateSelect() {
-      const prev = stateSelect.value;
+      const previous = stateSelect.value;
       stateSelect.innerHTML = "";
-      const allOpt = document.createElement("option");
-      allOpt.value = "all";
-      allOpt.textContent = "All states / territories";
-      stateSelect.appendChild(allOpt);
-      const list =
-        currentRegion === "international"
-          ? []
-          : statesForRegion(currentRegion === "all" ? "all" : currentRegion);
-      list.forEach((st) => {
-        const o = document.createElement("option");
-        o.value = st;
-        o.textContent = STATE_LABEL[st] + " (" + st + ")";
-        stateSelect.appendChild(o);
+
+      const allOption = document.createElement("option");
+      allOption.value = "all";
+      allOption.textContent = "All states / territories";
+      stateSelect.appendChild(allOption);
+
+      const states = statesForRegion(currentRegion);
+      states.forEach((state) => {
+        const option = document.createElement("option");
+        option.value = state;
+        option.textContent = STATE_LABEL[state] + " (" + state + ")";
+        stateSelect.appendChild(option);
       });
-      if (list.includes(prev)) stateSelect.value = prev;
-      else stateSelect.value = "all";
+
+      if (states.includes(previous)) {
+        stateSelect.value = previous;
+      } else {
+        stateSelect.value = "all";
+      }
       currentState = stateSelect.value;
     }
 
-    function jobMatchesRegion(job, regionKey) {
-      if (regionKey === "all") {
-        return job.region !== "international";
-      }
-      if (regionKey === "international") {
-        return job.region === "international";
-      }
-      return job.region === regionKey;
+    function organizationMatchesRegion(organization, regionKey) {
+      if (regionKey === "all") return true;
+      return organization.location && organization.location.region === regionKey;
     }
 
-    function jobMatchesState(job, st) {
-      if (st === "all") return true;
-      if (job.us_national) return true;
-      if (job.state && job.state === st) return true;
-      if (Array.isArray(job.states) && job.states.includes(st)) return true;
-      return false;
+    function organizationMatchesState(organization, stateCode) {
+      if (stateCode === "all") return true;
+      const location = organization.location || {};
+      if (location.us_national) return true;
+      return location.state === stateCode;
     }
 
-    function filteredJobs() {
-      return allJobs.filter((job) => jobMatchesRegion(job, currentRegion) && jobMatchesState(job, currentState));
+    function organizationMatchesCategory(organization, categoryKey) {
+      if (categoryKey === "all") return true;
+      return organization.category === categoryKey;
+    }
+
+    function filteredOrganizations() {
+      return allOrganizations
+        .filter((organization) =>
+          organizationMatchesRegion(organization, currentRegion) &&
+          organizationMatchesState(organization, currentState) &&
+          organizationMatchesCategory(organization, currentCategory)
+        )
+        .sort((left, right) => {
+          const categoryCompare = (CATEGORY_LABEL[left.category] || left.category).localeCompare(
+            CATEGORY_LABEL[right.category] || right.category
+          );
+          if (categoryCompare !== 0) return categoryCompare;
+          return left.name.localeCompare(right.name);
+        });
     }
 
     function syncMapHighlight() {
       if (!statePaths) return;
-      statePaths.classed("is-selected", (d) => {
-        const name = d.properties && d.properties.name;
-        const st = STATE_NAME_TO_STUSPS[name];
-        return st && currentState === st;
+
+      statePaths.classed("is-selected", (datum) => {
+        const stateName = datum.properties && datum.properties.name;
+        const state = STATE_NAME_TO_STUSPS[stateName];
+        return state && currentState === state;
       });
-      statePaths.classed("is-region", (d) => {
-        const name = d.properties && d.properties.name;
-        const st = STATE_NAME_TO_STUSPS[name];
-        if (!st) return false;
-        const r = STUSPS_TO_NOAA_REGION[st];
-        if (currentRegion === "international" || currentRegion === "all") return false;
-        return r === currentRegion && currentState === "all";
+
+      statePaths.classed("is-region", (datum) => {
+        const stateName = datum.properties && datum.properties.name;
+        const state = STATE_NAME_TO_STUSPS[stateName];
+        if (!state || currentRegion === "all" || currentState !== "all") return false;
+        return STUSPS_TO_NOAA_REGION[state] === currentRegion;
       });
     }
 
-    function renderJobs() {
-      intlBtn.classList.toggle("active", currentRegion === "international");
-      intlBtn.setAttribute("aria-pressed", String(currentRegion === "international"));
-
-      let titleParts = [];
-      if (currentRegion === "international") {
-        titleParts.push("International");
-      } else if (currentRegion === "all") {
-        titleParts.push("All U.S. regions");
+    function buildTitle() {
+      const parts = [];
+      if (currentRegion === "all") {
+        parts.push("All U.S. regions");
       } else {
-        titleParts.push(REGION_LABEL_SHORT[currentRegion] || currentRegion);
+        parts.push(REGION_LABEL_SHORT[currentRegion] || currentRegion);
       }
-      if (currentState !== "all" && currentRegion !== "international") {
-        titleParts.push(STATE_LABEL[currentState] || currentState);
+      if (currentState !== "all") {
+        parts.push(STATE_LABEL[currentState] || currentState);
       }
-      jobsTitle.textContent = "Jobs: " + titleParts.join(" — ");
+      if (currentCategory !== "all") {
+        parts.push(CATEGORY_LABEL[currentCategory] || currentCategory);
+      }
+      return "Organizations: " + parts.join(" - ");
+    }
 
-      const jobs = filteredJobs();
-      jobsList.innerHTML = "";
-      if (!jobs.length) {
-        const p = document.createElement("p");
-        p.className = "empty";
-        p.textContent = "No listings match this region and state filter.";
-        jobsList.appendChild(p);
+    function renderOrganizations() {
+      const organizations = filteredOrganizations();
+      directoryTitle.textContent = buildTitle();
+      directoryCount.textContent =
+        organizations.length + (organizations.length === 1 ? " organization" : " organizations");
+      directoryList.innerHTML = "";
+
+      if (!organizations.length) {
+        const empty = document.createElement("p");
+        empty.className = "empty";
+        empty.textContent = "No organizations match this region, state, and pillar filter.";
+        directoryList.appendChild(empty);
         syncMapHighlight();
         return;
       }
-      jobs.forEach((job) => {
+
+      organizations.forEach((organization) => {
+        const location = organization.location || {};
         const card = document.createElement("article");
-        card.className = "job-card";
-        const h = document.createElement("h3");
-        h.className = "job-title";
-        h.textContent = job.title;
+        card.className = "org-card";
+
+        const title = document.createElement("h3");
+        title.className = "org-title";
+
+        const categoryPill = document.createElement("span");
+        categoryPill.className = "pill";
+        categoryPill.textContent = CATEGORY_LABEL[organization.category] || organization.category;
+        title.appendChild(categoryPill);
+        title.appendChild(document.createTextNode(organization.name));
+
+        const summary = document.createElement("p");
+        summary.className = "org-summary";
+        summary.textContent = organization.summary || "";
+
         const meta = document.createElement("p");
-        meta.className = "job-meta";
-        const org = job.org || job.organization || "Unknown organization";
-        const loc = job.location || "Location not listed";
-        let stateNote = "";
-        if (job.us_national) stateNote = " · U.S.-wide postings";
-        else if (Array.isArray(job.states) && job.states.length) stateNote = " · States: " + job.states.join(", ");
-        else if (job.state) stateNote = " · " + job.state;
-        meta.textContent = org + " — " + loc + stateNote;
-        const a = document.createElement("a");
-        a.className = "job-link";
-        a.href = job.url;
-        a.target = "_blank";
-        a.rel = "noopener noreferrer";
-        a.textContent = "View posting";
-        card.appendChild(h);
+        meta.className = "org-meta";
+        const stateLabel = location.state ? (STATE_LABEL[location.state] || location.state) : "U.S.";
+        const regionLabel = location.region ? (REGION_LABEL_SHORT[location.region] || location.region) : "Region not listed";
+        const nationalNote = location.us_national ? " - U.S.-wide" : "";
+        meta.textContent = "Region: " + regionLabel + " - Location: " + stateLabel + nationalNote;
+
+        card.appendChild(title);
+        card.appendChild(summary);
         card.appendChild(meta);
-        card.appendChild(a);
-        jobsList.appendChild(card);
+
+        if (Array.isArray(organization.tags) && organization.tags.length) {
+          const tags = document.createElement("p");
+          tags.className = "org-tags";
+          tags.textContent = "Tags: " + organization.tags.join(", ");
+          card.appendChild(tags);
+        }
+
+        const links = document.createElement("div");
+        links.className = "org-links";
+
+        const siteLink = document.createElement("a");
+        siteLink.className = "org-link";
+        siteLink.href = organization.url;
+        siteLink.target = "_blank";
+        siteLink.rel = "noopener noreferrer";
+        siteLink.textContent = "Organization site";
+        links.appendChild(siteLink);
+
+        const careersLink = document.createElement("a");
+        careersLink.className = "org-link";
+        careersLink.href = organization.careers_url;
+        careersLink.target = "_blank";
+        careersLink.rel = "noopener noreferrer";
+        careersLink.textContent = "Careers";
+        links.appendChild(careersLink);
+
+        card.appendChild(links);
+        directoryList.appendChild(card);
       });
+
       syncMapHighlight();
     }
 
-    function setRegionAndState(regionKey, stateStusps) {
+    function setRegionAndState(regionKey, stateCode) {
       currentRegion = regionKey;
       regionSelect.value = regionKey;
       fillStateSelect();
-      if (stateStusps) {
-        if (stateSelect.querySelector('option[value="' + stateStusps + '"]')) {
-          stateSelect.value = stateStusps;
-        }
+
+      if (stateCode && stateSelect.querySelector('option[value="' + stateCode + '"]')) {
+        stateSelect.value = stateCode;
       }
+
       currentState = stateSelect.value;
-      renderJobs();
+      renderOrganizations();
     }
 
     regionSelect.addEventListener("change", () => {
       currentRegion = regionSelect.value;
       fillStateSelect();
       currentState = stateSelect.value;
-      renderJobs();
+      renderOrganizations();
     });
 
     stateSelect.addEventListener("change", () => {
       currentState = stateSelect.value;
-      renderJobs();
+      renderOrganizations();
     });
 
-    intlBtn.addEventListener("click", () => {
-      setRegionAndState("international", null);
+    categorySelect.addEventListener("change", () => {
+      currentCategory = categorySelect.value;
+      renderOrganizations();
     });
 
-    async function loadJobs() {
+    async function loadOrganizations() {
       try {
         const response = await fetch(dataUrl, { cache: "no-store" });
-        if (!response.ok) throw new Error("Failed to load: " + response.status);
+        if (!response.ok) throw new Error("Failed to load organizations: " + response.status);
         const items = await response.json();
-        if (!Array.isArray(items)) throw new Error("Invalid JSON");
-        allJobs = items;
+        if (!Array.isArray(items)) throw new Error("Invalid organizations JSON");
+
+        allOrganizations = items.filter((item) => item && item.location && item.location.country === "US");
         regionSelect.value = currentRegion;
+        categorySelect.value = currentCategory;
         fillStateSelect();
-        renderJobs();
-      } catch (e) {
-        jobsList.innerHTML = "";
-        const p = document.createElement("p");
-        p.className = "empty";
-        p.textContent = "Could not load jobs right now. Please try again shortly.";
-        jobsList.appendChild(p);
-        jobsTitle.textContent = "Jobs";
-        console.error(e);
+        renderOrganizations();
+      } catch (error) {
+        directoryList.innerHTML = "";
+        directoryTitle.textContent = "Organizations";
+        directoryCount.textContent = "";
+        const empty = document.createElement("p");
+        empty.className = "empty";
+        empty.textContent = "Could not load organizations right now. Please try again shortly.";
+        directoryList.appendChild(empty);
+        console.error(error);
       }
     }
 
     async function initMap() {
       try {
-        const us = await fetch(US_ATLAS_STATES, { cache: "no-store" }).then((r) => {
-          if (!r.ok) throw new Error("Atlas HTTP " + r.status);
-          return r.json();
+        const us = await fetch(US_ATLAS_STATES, { cache: "no-store" }).then((response) => {
+          if (!response.ok) throw new Error("Atlas HTTP " + response.status);
+          return response.json();
         });
         const statesGeo = feature(us, us.objects.states);
         const projection = d3.geoAlbersUsa().fitSize([mapWidth, mapHeight], statesGeo);
@@ -687,66 +777,53 @@
           .attr("role", "img")
           .attr("aria-label", "Map of the United States");
 
+        function handleStateSelection(datum) {
+          const stateName = datum.properties && datum.properties.name;
+          const state = STATE_NAME_TO_STUSPS[stateName];
+          if (!state) return;
+          if (state === "PR") {
+            setRegionAndState("southeast", "PR");
+            return;
+          }
+          if (state === "HI") {
+            setRegionAndState("pacific_islands", "HI");
+            return;
+          }
+          if (state === "AK") {
+            setRegionAndState("alaska", "AK");
+            return;
+          }
+          setRegionAndState(STUSPS_TO_NOAA_REGION[state] || "west_coast", state);
+        }
+
         statePaths = svg
           .selectAll("path")
           .data(statesGeo.features)
           .join("path")
           .attr("class", "state")
-          .attr("d", (d) => path(d) || "")
+          .attr("d", (datum) => path(datum) || "")
           .attr("tabindex", 0)
           .attr("role", "button")
-          .on("click", (event, d) => {
-            const name = d.properties && d.properties.name;
-            const st = STATE_NAME_TO_STUSPS[name];
-            if (!st) return;
-            if (st === "PR") {
-              setRegionAndState("southeast", "PR");
-              return;
-            }
-            const reg = STUSPS_TO_NOAA_REGION[st];
-            if (name === "Hawaii") {
-              setRegionAndState("pacific_islands", "HI");
-              return;
-            }
-            if (name === "Alaska") {
-              setRegionAndState("alaska", "AK");
-              return;
-            }
-            setRegionAndState(reg || "west_coast", st);
+          .on("click", (event, datum) => {
+            handleStateSelection(datum);
           })
-          .on("keydown", (event, d) => {
+          .on("keydown", (event, datum) => {
             if (event.key !== "Enter" && event.key !== " ") return;
             event.preventDefault();
-            const name = d.properties && d.properties.name;
-            const st = STATE_NAME_TO_STUSPS[name];
-            if (!st) return;
-            if (st === "PR") {
-              setRegionAndState("southeast", "PR");
-              return;
-            }
-            const reg = STUSPS_TO_NOAA_REGION[st];
-            if (name === "Hawaii") {
-              setRegionAndState("pacific_islands", "HI");
-              return;
-            }
-            if (name === "Alaska") {
-              setRegionAndState("alaska", "AK");
-              return;
-            }
-            setRegionAndState(reg || "west_coast", st);
+            handleStateSelection(datum);
           });
 
         syncMapHighlight();
-      } catch (e) {
+      } catch (error) {
         mapGeoError.style.display = "block";
         mapGeoError.textContent = "Could not load the U.S. map. Check your connection or try again later.";
-        console.error(e);
+        console.error(error);
       }
     }
 
     fillStateSelect();
     await initMap();
-    await loadJobs();
+    await loadOrganizations();
   </script>
 </body>
 </html>
