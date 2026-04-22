@@ -277,6 +277,162 @@ const other = [
     location: { country: "US", region: "greater_atlantic", state: "DC" },
     tags: ["ngo", "grants", "partnerships", "habitat"],
     provenance: { last_verified: v, source_type: "official_website" }
+  },
+  {
+    id: "nrcs",
+    name: "USDA Natural Resources Conservation Service",
+    category: "wildlife_land",
+    summary:
+      "USDA's primary private-lands conservation agency that works with agricultural producers to protect soil, water, habitat, and working lands through technical assistance, conservation planning, and Farm Bill programs. Source: nrcs.usda.gov.",
+    url: "https://www.nrcs.usda.gov/about",
+    careers_url: "https://www.nrcs.usda.gov/about/careers",
+    location: { country: "US", region: "greater_atlantic", state: "DC", us_national: true },
+    tags: ["federal", "private_lands", "soil", "water", "habitat"],
+    provenance: { last_verified: v, source_type: "official_website", notes: "Official mission and careers pages reviewed on nrcs.usda.gov." }
+  },
+  {
+    id: "noaa-onms",
+    name: "NOAA Office of National Marine Sanctuaries",
+    category: "fisheries_aquatic",
+    summary:
+      "NOAA program that manages the National Marine Sanctuary System, conserving nationally significant marine and Great Lakes waters through resource protection, research, education, and stewardship. Source: sanctuaries.noaa.gov.",
+    url: "https://sanctuaries.noaa.gov/",
+    careers_url: "https://sanctuaries.noaa.gov/jobs/",
+    location: { country: "US", region: "greater_atlantic", state: "MD", us_national: true },
+    tags: ["federal", "marine_protected_areas", "education", "stewardship"],
+    provenance: { last_verified: v, source_type: "official_website", notes: "National Marine Sanctuary System headquarters and field-site jobs are posted via NOAA's official sanctuary pages." }
+  },
+  {
+    id: "asmfc",
+    name: "Atlantic States Marine Fisheries Commission",
+    category: "fisheries_aquatic",
+    summary:
+      "Interstate compact commission that coordinates cooperative management, science, habitat work, and law-enforcement collaboration for Atlantic coastal fisheries shared across state lines. Source: asmfc.org.",
+    url: "https://asmfc.org/",
+    careers_url: "https://asmfc.org/careers/",
+    location: { country: "US", region: "greater_atlantic", state: "VA" },
+    tags: ["interstate_compact", "marine_fisheries", "stock_assessment", "habitat"],
+    provenance: { last_verified: v, source_type: "official_website", notes: "Mission and careers pages reviewed on ASMFC's official site." }
+  },
+  {
+    id: "psmfc",
+    name: "Pacific States Marine Fisheries Commission",
+    category: "fisheries_aquatic",
+    summary:
+      "Interstate fisheries commission serving Pacific states through fishery science, data systems, habitat and passage work, and cooperative management support for marine and anadromous species. Source: psmfc.org.",
+    url: "https://www.psmfc.org/",
+    careers_url: "https://www.psmfc.org/careers/",
+    location: { country: "US", region: "west_coast", state: "OR" },
+    tags: ["interstate_compact", "marine_fisheries", "salmon", "data_systems"],
+    provenance: { last_verified: v, source_type: "official_website", notes: "Official working-with-us page reviewed on psmfc.org." }
+  },
+  {
+    id: "glfc",
+    name: "Great Lakes Fishery Commission",
+    category: "fisheries_aquatic",
+    summary:
+      "Binational commission established by treaty to coordinate Great Lakes fishery research, sea lamprey control, and cooperative management among U.S. and Canadian jurisdictions. Source: glfc.org.",
+    url: "https://www.glfc.org/",
+    careers_url: "https://www.glfc.org/",
+    location: { country: "US", region: "greater_atlantic", state: "MI" },
+    tags: ["binational", "great_lakes", "fisheries_research", "invasive_species"],
+    provenance: { last_verified: v, source_type: "official_website", notes: "Home and about pages reviewed; the commission posts active hiring from its official site rather than a stable standalone careers page." }
+  },
+  {
+    id: "bureau-of-reclamation",
+    name: "Bureau of Reclamation",
+    category: "wildlife_land",
+    summary:
+      "Interior agency that manages, develops, and protects water and related resources in the western United States, including major responsibilities for reservoirs, water delivery, hydropower, environmental compliance, and fish and wildlife enhancement. Source: usbr.gov.",
+    url: "https://www.usbr.gov/main/about/",
+    careers_url: "https://www.usbr.gov/hr/apply.html",
+    location: { country: "US", region: "west_coast", state: "CO", us_national: true },
+    tags: ["federal", "water_management", "hydropower", "environmental_compliance"],
+    provenance: { last_verified: v, source_type: "official_website", notes: "Mission and hiring guidance reviewed on Bureau of Reclamation official pages." }
+  },
+  {
+    id: "national-wildlife-federation",
+    name: "National Wildlife Federation",
+    category: "conservation_ngo",
+    summary:
+      "National conservation nonprofit that works across the U.S. to restore wildlife populations, protect habitat, and advance policy and community action through regional centers and state and territorial affiliates. Source: nwf.org.",
+    url: "https://www.nwf.org/about-us",
+    careers_url: "https://www.nwf.org/about-us/careers",
+    location: { country: "US", region: "greater_atlantic", state: "VA", us_national: true },
+    tags: ["ngo", "wildlife", "policy", "affiliates"],
+    provenance: { last_verified: v, source_type: "official_website", notes: "Official about and careers pages reviewed on NWF's site." }
+  },
+  {
+    id: "wildlife-conservation-society",
+    name: "Wildlife Conservation Society",
+    category: "conservation_ngo",
+    summary:
+      "Conservation nonprofit that advances wildlife protection through science, field conservation, policy, and public engagement, with major U.S. and global programs on wildlife and wild places. Source: wcs.org.",
+    url: "https://www.wcs.org/about-us",
+    careers_url: "https://www.wcs.org/about-us/careers",
+    location: { country: "US", region: "greater_atlantic", state: "NY", us_national: true },
+    tags: ["ngo", "science", "wildlife", "global_conservation"],
+    provenance: { last_verified: v, source_type: "official_website", notes: "About and careers pages reviewed on WCS's official site." }
+  },
+  {
+    id: "the-conservation-fund",
+    name: "The Conservation Fund",
+    category: "conservation_ngo",
+    summary:
+      "National nonprofit that protects land, supports sustainable economies, and works with communities and partners on habitat protection, working forests, and conservation finance. Source: conservationfund.org.",
+    url: "https://www.conservationfund.org/about-us/",
+    careers_url: "https://www.conservationfund.org/about-us/careers/",
+    location: { country: "US", region: "greater_atlantic", state: "VA", us_national: true },
+    tags: ["ngo", "land_conservation", "working_forests", "conservation_finance"],
+    provenance: { last_verified: v, source_type: "official_website", notes: "Official about and careers pages reviewed on The Conservation Fund site." }
+  },
+  {
+    id: "rocky-mountain-elk-foundation",
+    name: "Rocky Mountain Elk Foundation",
+    category: "conservation_ngo",
+    summary:
+      "Membership-based conservation nonprofit focused on conserving elk, other wildlife, habitat, and hunting heritage through habitat projects, access work, and advocacy. Source: rmef.org.",
+    url: "https://www.rmef.org/",
+    careers_url: "https://www.rmef.org/careers/",
+    location: { country: "US", region: "west_coast", state: "MT", us_national: true },
+    tags: ["ngo", "elk", "habitat", "access"],
+    provenance: { last_verified: v, source_type: "official_website", notes: "Mission and careers information reviewed on RMEF's official site." }
+  },
+  {
+    id: "trcp",
+    name: "Theodore Roosevelt Conservation Partnership",
+    category: "conservation_ngo",
+    summary:
+      "Conservation advocacy nonprofit that unites hunting, fishing, and conservation partners to protect habitat, public lands, water, and access through policy and partnership work. Source: trcp.org.",
+    url: "https://www.trcp.org/",
+    careers_url: "https://www.trcp.org/employment/",
+    location: { country: "US", region: "greater_atlantic", state: "DC", us_national: true },
+    tags: ["ngo", "public_lands", "access", "policy"],
+    provenance: { last_verified: v, source_type: "official_website", notes: "Mission, contact, and employment pages reviewed on TRCP's official site." }
+  },
+  {
+    id: "american-bird-conservancy",
+    name: "American Bird Conservancy",
+    category: "conservation_ngo",
+    summary:
+      "Bird-conservation nonprofit that works across the Americas to conserve wild birds and habitats through science, partnerships, habitat restoration, and threat reduction. Source: abcbirds.org.",
+    url: "https://abcbirds.org/about/",
+    careers_url: "https://abcbirds.org/careers/",
+    location: { country: "US", region: "greater_atlantic", state: "VA", us_national: true },
+    tags: ["ngo", "birds", "habitat_restoration", "science"],
+    provenance: { last_verified: v, source_type: "official_website", notes: "Mission, careers, and contact pages reviewed on American Bird Conservancy's official site." }
+  },
+  {
+    id: "wild-salmon-center",
+    name: "Wild Salmon Center",
+    category: "conservation_ngo",
+    summary:
+      "Nonprofit focused on protecting wild salmon strongholds and the rivers, forests, wildlife, and communities that depend on them through science, campaigns, and durable habitat protections. Source: wildsalmoncenter.org.",
+    url: "https://wildsalmoncenter.org/",
+    careers_url: "https://wildsalmoncenter.org/careers/",
+    location: { country: "US", region: "west_coast", state: "OR", us_national: true },
+    tags: ["ngo", "salmon", "rivers", "habitat_protection"],
+    provenance: { last_verified: v, source_type: "official_website", notes: "Mission and careers pages reviewed on Wild Salmon Center's official site." }
   }
 ];
 
