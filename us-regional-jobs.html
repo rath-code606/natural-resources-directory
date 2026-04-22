@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Regional U.S. Jobs Map</title>
+  <style>
+    :root {
+      --accent: #d82e00;
+      --text: #222;
+      --muted: #666;
+      --bg: #fff;
+      --card: #fff7f4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.4;
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 24px auto 40px;
+      padding: 0 16px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      text-align: center;
+    }
+
+    .subtitle {
+      margin: 0 0 24px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 1fr) 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      background: #fff;
+      padding: 14px;
+    }
+
+    .map-wrap {
+      border: 1px solid #f0d6ce;
+      border-radius: 10px;
+      background: #fffdfa;
+      padding: 8px;
+    }
+
+    .us-map-root {
+      width: 100%;
+      min-height: 320px;
+    }
+
+    .us-map-root svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .state {
+      fill: #fff7f4;
+      stroke: #ccc;
+      stroke-width: 0.75;
+      cursor: pointer;
+      transition: fill 0.15s ease, stroke 0.15s ease;
+    }
+
+    .state:hover,
+    .state:focus {
+      fill: #ffe8e0;
+      outline: none;
+    }
+
+    .state.is-active {
+      fill: var(--accent);
+      stroke: #8c1e00;
+    }
+
+    .map-footnote {
+      margin: 8px 0 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .map-error {
+      margin: 8px 0 0;
+      color: #b00000;
+    }
+
+    .intl-btn {
+      margin-top: 10px;
+      width: 100%;
+      border: 2px solid var(--accent);
+      background: #fff;
+      color: var(--accent);
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .intl-btn:hover,
+    .intl-btn:focus-visible,
+    .intl-btn.active {
+      background: var(--accent);
+      color: #fff;
+      outline: none;
+    }
+
+    .jobs-header {
+      margin: 0 0 12px;
+      font-size: 22px;
+    }
+
+    .jobs-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .job-card {
+      border: 1px solid #ffd7cc;
+      background: var(--card);
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+
+    .job-title {
+      margin: 0 0 4px;
+      font-weight: 700;
+      color: #8c1e00;
+    }
+
+    .job-meta {
+      margin: 0;
+      color: #444;
+      font-size: 14px;
+    }
+
+    .job-link {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .job-link:hover,
+    .job-link:focus-visible {
+      text-decoration: underline;
+      outline: none;
+    }
+
+    .empty {
+      margin: 0;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    @media (max-width: 860px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>U.S. Regional Job Board</h1>
+    <p class="subtitle">Click a state on the map, or use International</p>
+
+    <section class="layout">
+      <div class="panel">
+        <h2>United States</h2>
+        <div class="map-wrap">
+          <div id="us-map-root" class="us-map-root" aria-label="U.S. map, click a state to filter by region"></div>
+          <p class="map-footnote">Map: <a href="https://github.com/topojson/us-atlas" rel="noreferrer" target="_blank">us-atlas</a> + D3. Regions are grouped for this directory.</p>
+          <p id="map-geo-error" class="map-error" role="status" style="display:none"></p>
+        </div>
+        <button type="button" class="intl-btn" id="intl-btn" aria-pressed="false">International (not on map)</button>
+      </div>
+
+      <div class="panel">
+        <h2 id="jobs-region-title" class="jobs-header">Jobs</h2>
+        <div id="jobs-list" class="jobs-list" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+    import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
+    import { feature } from "https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/+esm";
+
+    const US_ATLAS_STATES = "https://cdn.jsdelivr.net/npm/us-atlas@3.0.0/states-10m.json";
+    const dataUrl = "https://raw.githubusercontent.com/rath-code606/natural-resources-directory/main/bird-sites-regional.json";
+
+    const stateNameToDirRegion = {
+      Alaska: "alaska",
+      Alabama: "central",
+      Arkansas: "central",
+      Arizona: "west",
+      California: "west",
+      Colorado: "west",
+      Connecticut: "east",
+      "District of Columbia": "east",
+      Delaware: "east",
+      Florida: "east",
+      Georgia: "east",
+      Hawaii: "west",
+      Iowa: "central",
+      Idaho: "west",
+      Illinois: "central",
+      Indiana: "central",
+      Kansas: "central",
+      Kentucky: "central",
+      Louisiana: "central",
+      Massachusetts: "east",
+      Maryland: "east",
+      Maine: "east",
+      Michigan: "central",
+      Minnesota: "central",
+      Missouri: "central",
+      Mississippi: "central",
+      Montana: "west",
+      "North Carolina": "east",
+      "North Dakota": "central",
+      Nebraska: "central",
+      "New Hampshire": "east",
+      "New Jersey": "east",
+      "New Mexico": "west",
+      Nevada: "west",
+      "New York": "east",
+      Ohio: "central",
+      Oklahoma: "central",
+      Oregon: "west",
+      Pennsylvania: "east",
+      "Rhode Island": "east",
+      "South Carolina": "east",
+      "South Dakota": "central",
+      Tennessee: "central",
+      Texas: "central",
+      Utah: "west",
+      Virginia: "east",
+      Vermont: "east",
+      Washington: "west",
+      Wisconsin: "central",
+      "West Virginia": "east",
+      Wyoming: "west",
+      "Puerto Rico": "international"
+    };
+
+    const jobsByRegion = {
+      alaska: [],
+      west: [],
+      central: [],
+      east: [],
+      international: []
+    };
+
+    const regionLabels = {
+      alaska: "Alaska",
+      west: "West",
+      central: "Central",
+      east: "East",
+      international: "International"
+    };
+
+    const jobsTitle = document.getElementById("jobs-region-title");
+    const jobsList = document.getElementById("jobs-list");
+    const intlBtn = document.getElementById("intl-btn");
+    const mapRoot = document.getElementById("us-map-root");
+    const mapGeoError = document.getElementById("map-geo-error");
+
+    let currentRegion = "west";
+    let statePaths = null;
+    const mapWidth = 800;
+    const mapHeight = 500;
+
+    function groupJobsByRegion(items) {
+      Object.keys(jobsByRegion).forEach((k) => {
+        jobsByRegion[k] = [];
+      });
+      items.forEach((item) => {
+        const r = String(item.region || "").toLowerCase();
+        if (Object.prototype.hasOwnProperty.call(jobsByRegion, r)) {
+          jobsByRegion[r].push(item);
+        }
+      });
+    }
+
+    function syncMapHighlight() {
+      if (!statePaths) return;
+      statePaths
+        .classed("is-active", (d) => {
+          if (currentRegion === "international") return false;
+          const name = d.properties && d.properties.name;
+          const dir = stateNameToDirRegion[name] || "central";
+          return dir === currentRegion;
+        });
+    }
+
+    function renderRegion(regionKey) {
+      currentRegion = regionKey;
+      const jobs = jobsByRegion[regionKey] || [];
+      jobsTitle.textContent = "Jobs: " + regionLabels[regionKey];
+      intlBtn.classList.toggle("active", regionKey === "international");
+      intlBtn.setAttribute("aria-pressed", String(regionKey === "international"));
+      syncMapHighlight();
+
+      jobsList.innerHTML = "";
+      if (!jobs.length) {
+        const p = document.createElement("p");
+        p.className = "empty";
+        p.textContent = "No jobs posted yet for this region.";
+        jobsList.appendChild(p);
+        return;
+      }
+      jobs.forEach((job) => {
+        const card = document.createElement("article");
+        card.className = "job-card";
+        const h = document.createElement("h3");
+        h.className = "job-title";
+        h.textContent = job.title;
+        const meta = document.createElement("p");
+        meta.className = "job-meta";
+        const org = job.org || job.organization || "Unknown organization";
+        const loc = job.location || "Location not listed";
+        meta.textContent = org + " - " + loc;
+        const a = document.createElement("a");
+        a.className = "job-link";
+        a.href = job.url;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.textContent = "View posting";
+        card.appendChild(h);
+        card.appendChild(meta);
+        card.appendChild(a);
+        jobsList.appendChild(card);
+      });
+    }
+
+    intlBtn.addEventListener("click", () => renderRegion("international"));
+
+    async function loadJobs() {
+      try {
+        const response = await fetch(dataUrl, { cache: "no-store" });
+        if (!response.ok) throw new Error("Failed to load: " + response.status);
+        const items = await response.json();
+        if (!Array.isArray(items)) throw new Error("Invalid JSON");
+        groupJobsByRegion(items);
+        renderRegion("west");
+      } catch (e) {
+        jobsList.innerHTML = "";
+        const p = document.createElement("p");
+        p.className = "empty";
+        p.textContent = "Could not load jobs right now. Please try again shortly.";
+        jobsList.appendChild(p);
+        jobsTitle.textContent = "Jobs";
+        console.error(e);
+      }
+    }
+
+    async function initMap() {
+      try {
+        const us = await fetch(US_ATLAS_STATES, { cache: "no-store" }).then((r) => {
+          if (!r.ok) throw new Error("Atlas HTTP " + r.status);
+          return r.json();
+        });
+        const statesGeo = feature(us, us.objects.states);
+        const projection = d3.geoAlbersUsa().fitSize([mapWidth, mapHeight], statesGeo);
+        const path = d3.geoPath().projection(projection);
+        const svg = d3
+          .select(mapRoot)
+          .append("svg")
+          .attr("viewBox", "0 0 " + mapWidth + " " + mapHeight)
+          .attr("role", "img")
+          .attr("aria-label", "Map of the United States");
+
+        statePaths = svg
+          .selectAll("path")
+          .data(statesGeo.features)
+          .join("path")
+          .attr("class", "state")
+          .attr("d", (d) => path(d) || "")
+          .attr("tabindex", 0)
+          .attr("role", "button")
+          .on("click", (event, d) => {
+            const name = d.properties && d.properties.name;
+            const dir = stateNameToDirRegion[name] || "central";
+            if (name === "Puerto Rico") {
+              renderRegion("international");
+            } else {
+              renderRegion(dir);
+            }
+          })
+          .on("keydown", (event, d) => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              const name = d.properties && d.properties.name;
+              const dir = stateNameToDirRegion[name] || "central";
+              if (name === "Puerto Rico") renderRegion("international");
+              else renderRegion(dir);
+            }
+          });
+
+        syncMapHighlight();
+      } catch (e) {
+        mapGeoError.style.display = "block";
+        mapGeoError.textContent = "Could not load the U.S. map. Check your connection or try again later.";
+        console.error(e);
+      }
+    }
+
+    await initMap();
+    await loadJobs();
+  </script>
+</body>
+</html>
